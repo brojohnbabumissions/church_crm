@@ -1,0 +1,26 @@
+{
+  "name": "THE PRINCE OF LIFE MINISTRIES",
+  "short_name": "Prince of Life",
+  "description": "Church CRM – Gudarigunta, Kakinada",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#120a26",
+  "theme_color": "#2a1a55",
+  "lang": "te",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
