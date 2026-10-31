@@ -125,6 +125,8 @@ app.innerHTML=`<div class="verse"><div class="mu">Foundation Verse / మా ప�
 <div class="card"><h2>Our Services / మా సేవలు</h2>${sv("🙏 Prayer Requests / వ్యక్తిగత ప్రార్థన","మీరు మీ ప్రార్థన అవసరాలను సమర్పించినప్పుడు, మేము మీకు స్వయంగా ఫోన్ చేసి, మీతో కలిసి ఏకీభవించి ప్రార్థన చేస్తాము.")}${sv("✝ Testimonies / సాక్ష్యాలు","దేవుడు మీ జీవితంలో చేసిన అద్భుతాలను ఇక్కడ పంచుకోవచ్చు. మీ సాక్ష్యం మరొకరి జీవితంలో విశ్వాసపు వెలుగును నింపుతుంది.")}</div>
 <p style="text-align:center;color:var(--gold)">✝ దేవుడు మిమ్మల్ని దీవించును గాక! ✝</p>`+pastorBox()}
 
+const MYST={"":["📨","మీ ప్రార్థన పాస్టర్ గారికి చేరింది"],prayed:["🙏","పాస్టర్ గారు మీ కోసం ప్రార్థించారు"],follow:["📞","పాస్టర్ గారు మీ గురించి శ్రద్ధ తీసుకుంటున్నారు"],testimony:["🎉","ప్రభువు జవాబిచ్చారు! మీ సాక్ష్యం పంచుకోండి"]};
+function myBox(pid){const a=(S.my||[]).filter(x=>x.pid===pid);if(!a.length)return"";return `<div class="card"><h2>🙏 మీ ప్రార్థనలు / My Prayers</h2>${a.map(x=>{const s=MYST[x.status]||MYST[""];return `<div class="item" style="cursor:default"><b>${esc(x.name)}</b> <span class="mu">· ${fmt(x.time)}</span><div class="mu" style="margin:2px 0 6px">${esc(x.text)}${x.text.length>=60?"…":""}</div><span class="pill">${s[0]} ${s[1]}</span></div>`}).join("")}</div>`}
 function rHome(){const st=S.step;
 if(st==="choose"){const tv=VERSES[Math.floor((Date.now()+19800000)/864e5)%VERSES.length];app.innerHTML=`<p style="text-align:center;color:var(--gold);font-size:16px;padding:6px 10px">“${esc(tv[1])}”<br><span class="mu">— ${esc(tv[0])}</span></p>
 <div class="card center"><div style="font-size:44px">🕊️</div><h2>New Member / కొత్త సభ్యులు</h2><p class="mu">First time here? Fill your details and submit your prayer request.<br>మొదటిసారి వచ్చారా? మీ వివరాలు, ప్రార్థన అభ్యర్థన ఇవ్వండి.</p><button class="p" id="c1">Begin / ప్రారంభించండి ✦</button></div>
@@ -139,7 +141,7 @@ $("#bk").onclick=()=>{S.step="choose";render()};
 if($("#fp"))$("#fp").addEventListener("click",e=>{const p=$("#ph").value.replace(/\D/g,"");e.currentTarget.href=wl(CFG.phone,`పాస్టర్ గారూ, నా ఫోన్ నంబర్ ${p||"…"}. నేను PIN మర్చిపోయాను, దయచేసి సహాయం చేయండి. 🙏`)});
 $("#go").onclick=async()=>{const p=$("#ph").value.replace(/\D/g,""),pn=$("#pn").value.replace(/\D/g,"");if(p.length!==10){$("#e").textContent="సరైన 10 అంకెల నంబర్ ఇవ్వండి";return}if(pn.length!==4){$("#e").textContent="4 అంకెల PIN ఇవ్వండి";return}
 S.phone=p;S.upin=pn;if(nw){S.addMode=false;S.step="new";render();return}
-busy($("#go"),true);try{S.people=await run("getNames",p,pn);S.step="pick";render()}catch(e){$("#e").textContent=e.message;busy($("#go"),false)}}}
+busy($("#go"),true);try{S.people=await run("getNames",p,pn);S.my=[];try{S.my=(await run("getMyPrayers",p,pn))||[]}catch(x){}S.step="pick";render()}catch(e){$("#e").textContent=e.message;busy($("#go"),false)}}}
 else if(st==="pick"){app.innerHTML=`<div class="card"><h2>Select Your Name / మీ పేరు ఎంచుకోండి</h2>${S.people.map((p,i)=>`<div class="item" data-i="${i}">👤 <b>${esc(p.name)}</b></div>`).join("")}<div class="item" data-i="new">➕ మరొక కొత్త పేరు చేర్చండి</div></div>`+pastorBox();
 app.querySelectorAll(".item").forEach(e=>e.onclick=()=>{const i=e.dataset.i;if(i==="new"){S.addMode=true;S.step="new"}else{S.person=S.people[+i];S.step="back"}render()})}
 else if(st==="new"){app.innerHTML=`<div class="card"><h2>${S.addMode?"Add Another Name / మరొక పేరు":"New Details / కొత్త వివరాలు"}</h2><div class="mu">ఫోన్ / Phone: ${esc(S.phone)}</div>
@@ -149,7 +151,7 @@ else if(st==="new"){app.innerHTML=`<div class="card"><h2>${S.addMode?"Add Anothe
 <label>Can we call you? / మీకు ఫోన్ చేయవచ్చా?</label><select id="call"><option value="అవును">అవును, ఫోన్ చేయండి</option><option value="వద్దు">వద్దు</option></select>${upiBox()}<p class="err" id="e"></p><button class="p" id="sub" data-t="Submit / సమర్పించండి" style="width:100%;margin-top:12px">Submit / సమర్పించండి</button></div>`+pastorBox();bindUpi();
 $("#sub").onclick=async()=>{const nm=$("#nm").value.trim();if(!nm){$("#e").textContent="పేరు తప్పనిసరి";return}busy($("#sub"),true);
 try{await run("saveEntry",{phone:S.phone,pin:S.upin,name:nm,job:$("#job").value,dob:$("#dob").value,anniv:$("#an").value,address:$("#ad").value,area:$("#area").value,email:$("#em").value,prayer:$("#pr").value,callOk:$("#call").value});done()}catch(e){$("#e").textContent=e.message;busy($("#sub"),false)}}}
-else if(st==="back"){const p=S.person;app.innerHTML=`<div class="card"><h2>🙏 ${esc(p.name)}</h2>
+else if(st==="back"){const p=S.person;app.innerHTML=`${myBox(p.id)}<div class="card"><h2>🙏 ${esc(p.name)}</h2>
 ${p.needJob?`<label>Occupation / వృత్తి (మీరు ఏ పని చేస్తారు?)</label><input id="job">`:""}${p.needDob?`<label>Date of Birth / పుట్టిన తేదీ</label><input id="dob" type="date">`:""}${p.needAnniv?`<label>Marriage Date / వివాహ తేదీ (ఉంటే)</label><input id="an" type="date">`:""}${p.needEmail?`<label>Email / ఇమెయిల్</label><input id="em" type="email">`:""}${p.needArea?`<label>Village / ఊరు</label><input id="area"><p class="mu" style="margin:4px 0 0">📍 మీ ఊరు చెబితే పాస్టర్ గారు మిమ్మల్ని కలవడానికి, ఫోన్ చేయడానికి వీలవుతుంది.</p>`:""}
 <label>New Prayer Request / కొత్త ప్రార్థన అభ్యర్థన</label><textarea id="pr"></textarea>
 <label>Testimony / గతంలో ప్రార్థనకు సాక్ష్యం</label><textarea id="ts" placeholder="దేవుడు చేసిన మేలు రాయండి"></textarea>
