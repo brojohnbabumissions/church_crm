@@ -1,10 +1,10 @@
 /* Simple Service Worker: app files only. Member data is never cached (always straight from the server). */
-const V = 'pol-v2';
-const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
+const V = 'pol-v3';
+const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-192.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'card-birthday.webp', 'card-anniversary.webp'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(V).then(c => c.addAll(FILES)).then(() => self.skipWaiting())
+    caches.open(V).then(c => Promise.all(FILES.map(f => c.add(f).catch(() => {})))).then(() => self.skipWaiting())
   );
 });
 
