@@ -2,6 +2,7 @@
 <html lang="te"><head><base target="_top"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Prince of Life Ministries</title>
+<meta property="og:title" content="Visit The Prince of Life Ministries"><meta property="og:description" content="Prayer requests, daily devotion, songs and Bible reading plan – The Prince of Life Ministries"><meta property="og:type" content="website"><meta name="description" content="Visit The Prince of Life Ministries">
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#2a1a55"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -44,7 +45,7 @@ button.p{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647}button
 .dtx{--f:13px}.dtx b{color:var(--gold);font-size:var(--f);line-height:1.3;letter-spacing:.2px}.dtx span{font-size:calc(var(--f)*1.04);line-height:1.3}.dtx small{color:var(--mu);font-size:var(--f);line-height:1.3}
 .ph{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:4px 11px;color:var(--gold);text-decoration:none;font-weight:600;font-size:calc(var(--f,13px)*1.05);letter-spacing:.4px;background:var(--ac2);white-space:nowrap}
 .chip{padding:4px 10px;border-radius:99px;border:1px solid var(--bd);background:transparent;color:var(--mu);font-size:12.5px;font-weight:500}.chip.on{background:var(--ac);color:#2a1647;border-color:var(--ac)}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:12px}.tabs button{padding:5px 1px;font-size:10.5px;line-height:1.25;background:var(--card);border:1px solid var(--bd)}.tabs button.on{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647;border-color:transparent}.tabs small{display:block;font-weight:400;opacity:.85;font-size:10px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:12px}.tabs button{padding:7px 2px;font-size:12px;line-height:1.25;background:var(--card);border:1px solid var(--bd)}.tabs button.on{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647;border-color:transparent}.tabs small{display:block;font-weight:400;opacity:.85;font-size:10px}
 .err{color:#ff8a80;font-size:14px;min-height:20px}
 .photo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);display:block;margin:0 auto 8px;background:var(--ac2);font-size:50px;line-height:104px}
 .gc{padding:3px;border-radius:18px;background:linear-gradient(135deg,#a67c2e,#fff1b8,#c99a3b,#fff1b8,#a67c2e);background-size:250% 250%;animation:shine2 6s linear infinite,pop .8s ease both;margin-bottom:12px}
@@ -58,11 +59,55 @@ button.p{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647}button
 .gc-v small{color:var(--mu)}
 .gc2{margin-bottom:12px;text-align:center} .gcv{width:100%;max-width:520px;height:auto;aspect-ratio:1/1;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.45);display:block;margin:0 auto} .gcb{display:flex;gap:8px;margin:8px auto 0;max-width:520px} .gcb button{flex:1} .gc-s{font-size:13px;color:var(--gold)}
 @keyframes shine2{from{background-position:0 0}to{background-position:250% 250%}}
+
+/* --- లోడింగ్ దేవదూత --- */
+#ld{position:fixed;inset:0;z-index:60;background:rgba(18,10,38,.88);display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px}
+#ld.on{display:flex;animation:pop .3s ease both}
+#ld p{margin:4px 0 0;color:var(--gold);font-size:17px;font-weight:600}#ld .mu{max-width:300px;margin-top:10px;font-size:13.5px}
+.ang{width:220px;height:220px;overflow:visible}
+.ang .bob{animation:bob 2.6s ease-in-out infinite}
+.ang .wl,.ang .wr{transform-box:fill-box;animation:flap .9s ease-in-out infinite}
+.ang .wl{transform-origin:100% 85%}.ang .wr{transform-origin:0% 85%;animation-name:flapr}
+.ang .pg{transform-box:fill-box;transform-origin:0% 50%;animation:flip 1.7s ease-in-out infinite}
+.ang .gl{animation:glow 2s ease-in-out infinite}.ang .sp{animation:glow 1.4s ease-in-out infinite}.ang .sp2{animation:glow 1.9s ease-in-out .5s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes bob2{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes flap{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-14deg)}}
+@keyframes flapr{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(14deg)}}
+@keyframes flip{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+@keyframes glow{0%,100%{opacity:.25}50%{opacity:.95}}
+.dots span{display:inline-block;animation:dt 1.2s infinite}.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes dt{0%,80%,100%{opacity:.2}40%{opacity:1}}
+/* --- సభ్యుని మెనూ --- */
+.mhead{display:flex;align-items:center;gap:12px;padding:12px;margin-bottom:12px;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(120deg,#3b2570,#1f1440 60%,#4a3510);animation:up .45s ease both}
+.mhead img,.mph{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;background:var(--ac2)}
+.mhead b{font-size:18px;color:#f6e3a1;line-height:1.3}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;padding:14px 4px 10px;min-height:132px;background:var(--card);border:1px solid var(--bd);border-radius:16px;color:var(--tx);animation:pop .5s ease both;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.tile .ti{font-size:38px;line-height:1.15;animation:bob2 3s ease-in-out infinite}.tile b{font-size:12.5px;line-height:1.3;color:#fff}.tile small{font-size:11px;color:var(--mu);font-weight:400;line-height:1.3}
+.tile em{font-style:normal;font-size:11px;color:#2a1647;background:var(--ac);border-radius:99px;padding:0 8px;margin-top:2px}
+/* --- బైబిల్ ప్లాన్ --- */
+.plan{display:block;width:100%;margin-top:10px;padding:14px;text-align:left;background:var(--ac2);border:1px solid var(--bd);color:var(--tx);animation:pop .5s ease both}.plan b{font-size:17px;color:var(--gold)}.plan small{display:block;color:var(--mu);font-weight:400}
+.bar{height:12px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:linear-gradient(90deg,#a67c2e,#f6e3a1);border-radius:99px;animation:grow 1s ease both}
+@keyframes grow{from{width:0}}
+.bpr{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--bd);cursor:pointer}.bpr:last-child{border:0}
+.bpc{flex:none;width:26px;height:26px;margin-top:2px;border:2px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#2a1647;font-weight:700}
+.bpr.ok .bpc{background:var(--gold)}.bpr.ok{opacity:.7}.hit{animation:pop .5s ease both}
+.today{border-color:var(--gold);box-shadow:0 0 16px rgba(224,180,90,.25)}.today .rd{font-size:19px;line-height:1.6;color:#fff;margin:6px 0 12px}
+.bkf{font-size:52px;text-align:center;animation:bob2 3s ease-in-out infinite}
+
+.tabs button:last-child:nth-child(3n+1){grid-column:1/-1}
+.avb{position:relative;flex:none;background:none;padding:0;border:0;border-radius:50%;display:block}
+.avb i{position:absolute;right:-3px;bottom:-3px;font-style:normal;font-size:11px;background:var(--gold);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center}
+.dsl{min-height:170px}.sl{animation:up .5s ease both}.sh{margin:6px 0;color:var(--gold);font-size:18px}.sx{white-space:pre-wrap;font-size:18px;line-height:1.8}
+.dnav{display:flex;align-items:center;gap:8px;margin-top:10px}.dnav button{font-size:22px;padding:4px 16px}
+.dots2{flex:1;display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.dots2 i{width:8px;height:8px;border-radius:50%;background:var(--bd);transition:.3s}.dots2 i.on{background:var(--gold);transform:scale(1.4)}
+.fresh{display:inline-block;background:var(--ac);color:#2a1647;border-radius:99px;padding:4px 14px;font-size:13.5px;font-weight:700;animation:pop .6s ease both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></head><body>
 <header><div id="logo"></div><h1 id="cn"></h1></header>
 <nav><button id="nH" class="p">🏠 Home / హోమ్</button><button id="nS">🎵 Songs / పాటలు</button><button id="nA">ℹ️ About / మన గురించి</button></nav>
-<main id="app"></main><div id="modal"></div>
+<main id="app"></main><div id="modal"></div><div id="ld"><svg class="ang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle class="gl" cx="100" cy="76" r="62" fill="#f6e3a1" opacity=".3"/><text class="sp" x="30" y="40" font-size="16" fill="#f6e3a1">✦</text><text class="sp2" x="162" y="52" font-size="14" fill="#f6e3a1">✦</text><text class="sp2" x="150" y="150" font-size="12" fill="#f6e3a1">✦</text><text class="sp" x="36" y="140" font-size="12" fill="#f6e3a1">✦</text><g class="bob"><path class="wl" d="M88 102 C40 62 12 80 18 130 C40 110 60 120 90 126 Z" fill="#fff6cf" stroke="#e0b45a" stroke-width="2"/><path class="wr" d="M112 102 C160 62 188 80 182 130 C160 110 140 120 110 126 Z" fill="#fff6cf" stroke="#e0b45a" stroke-width="2"/><path d="M78 98 Q100 88 122 98 L138 172 Q100 184 62 172 Z" fill="#f3ecff" stroke="#e0b45a" stroke-width="2"/><circle cx="100" cy="68" r="16" fill="#ffe2c4"/><path d="M84 67 Q100 42 116 67 Q108 56 100 56 Q92 56 84 67Z" fill="#c99a3b"/><ellipse cx="100" cy="44" rx="17" ry="5" fill="none" stroke="#f6c94a" stroke-width="3"/><circle cx="94" cy="69" r="1.8" fill="#5a3a22"/><circle cx="106" cy="69" r="1.8" fill="#5a3a22"/><path d="M94 75 Q100 80 106 75" stroke="#8a5a3a" stroke-width="2" fill="none" stroke-linecap="round"/><g transform="translate(68 118)"><rect width="64" height="40" rx="4" fill="#5b2f94" stroke="#e0b45a" stroke-width="2"/><rect x="4" y="4" width="27" height="32" fill="#fff"/><rect x="33" y="4" width="27" height="32" fill="#fff"/><rect class="pg" x="33" y="4" width="27" height="32" fill="#f6e3a1"/><line x1="32" y1="4" x2="32" y2="36" stroke="#bbb"/><path d="M9 12h17M9 18h17M9 24h13M38 12h17M38 18h17" stroke="#c9b9e8" stroke-width="1.5"/></g><path d="M80 104 Q64 130 76 142" stroke="#ffe2c4" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M120 104 Q136 130 124 142" stroke="#ffe2c4" stroke-width="9" fill="none" stroke-linecap="round"/></g></svg><p><span id="ldm">ఒక్క నిమిషం</span><span class="dots"><span>.</span><span>.</span><span>.</span></span></p><div class="mu" id="ldv"></div></div>
 <script>
 /* ===== మీ వివరాలు ===== */
 const CFG={name:"THE PRINCE OF LIFE MINISTRIES",pastor:"G. John Babu Zenith",phone:"9291382292",addr:"Gudarigunta, Kakinada, AP",
@@ -111,9 +156,16 @@ getSong:(p,n,id)=>{ma(p,n);const x=L("songs").find(y=>y.ID===id);if(!x)throw new
 getSongImage:(p,n,id,i)=>{ma(p,n);return L("songs").find(y=>y.ID===id).imgs[+i]},
 addSong:(p,n,d)=>{ma(p,n);if(!(d.title||"").trim())throw new Error("పాట పేరు రాయండి");if(!(d.lyrics||"").trim())throw new Error("పాట సాహిత్యం రాయండి");L("songs").push({ID:"S"+Date.now(),Title:d.title.trim(),Author:(d.author||"").trim(),Lyrics:d.lyrics,imgs:[],Phone:ph(p)});W("songs");return{id:1}},
 deleteSong:(p,n,id)=>{ma(p,n);const a=L("songs"),i=a.findIndex(y=>y.ID===id);if(i>=0)a.splice(i,1);W("songs");return true},
+getDaily:()=>{const t=ist().toISOString().slice(0,10),o={date:t};["devotion","prayer","testimony"].forEach(k=>{const a=L("d_"+k).filter(x=>x.d<=t).sort((p,q)=>q.d.localeCompare(p.d));o[k]=a.length?{id:a[0].id,t:a[0].t,x:a[0].x,d:a[0].d}:null});return o},pastorDaily:(pin,k)=>{pa(pin);return{k:k,today:ist().toISOString().slice(0,10),items:L("d_"+k).slice().sort((p,q)=>q.d.localeCompare(p.d))}},pastorSaveDaily:(pin,d)=>{pa(pin);if(!d.date)throw new Error("తేదీ ఎంచుకోండి");if(!(d.text||"").trim())throw new Error("సమాచారం రాయండి");const a=L("d_"+d.kind),x=d.id&&a.find(y=>y.id===d.id);if(a.some(y=>y.d===d.date&&(!x||y.id!==x.id)))throw new Error("ఈ తేదీకి ఇప్పటికే సందేశం ఉంది");if(x){x.d=d.date;x.t=d.title;x.x=d.text}else a.push({id:"D"+Date.now(),d:d.date,t:d.title||"",x:d.text});W("d_"+d.kind);return true},pastorDeleteDaily:(pin,k,id)=>{pa(pin);const a=L("d_"+k),i=a.findIndex(y=>y.id===id);if(i>=0)a.splice(i,1);W("d_"+k);return true},
+pastorSongs:pin=>{pa(pin);return L("songs").map(x=>({id:x.ID,t:x.Title,a:x.Author||"",n:"Demo",c:iso(),h:0}))},pastorDeleteSong:(pin,id)=>{pa(pin);const a=L("songs"),i=a.findIndex(y=>y.ID===id);if(i>=0)a.splice(i,1);W("songs");return true},
 pastorDeleteMeeting:(pin,id)=>{pa(pin);const ms=L("meets"),i=ms.findIndex(m=>m.ID===id);if(i>=0)ms.splice(i,1);W("meets");return true},
 getVerses:()=>VERSES}})();
-const run=(fn,...a)=>CFG.backend?fetch(CFG.backend,{method:"POST",body:JSON.stringify({fn,args:a})}).then(x=>x.json()).then(j=>{if(j.error)throw new Error(j.error);return j.result}):DEMO?new Promise((ok,no)=>{try{ok(MOCK[fn](...a))}catch(e){no(e)}}):new Promise((ok,no)=>google.script.run.withSuccessHandler(ok).withFailureHandler(e=>no(new Error(e.message||String(e))))[fn](...a));
+const run0=(fn,...a)=>CFG.backend?fetch(CFG.backend,{method:"POST",body:JSON.stringify({fn,args:a})}).then(x=>x.json()).then(j=>{if(j.error)throw new Error(j.error);return j.result}):DEMO?new Promise((ok,no)=>{try{ok(MOCK[fn](...a))}catch(e){no(e)}}):new Promise((ok,no)=>google.script.run.withSuccessHandler(ok).withFailureHandler(e=>no(new Error(e.message||String(e))))[fn](...a));
+const QUIET={getVerses:1,getSongImage:1,markSeen:1,getMyPrayers:1},LDM={getNames:"దేవదూత మీ వివరాలు తెస్తున్నాడు",saveEntry:"మీ అభ్యర్థన పాస్టర్ గారికి చేరుస్తున్నాడు",getSongs:"దేవదూత పాటల పుస్తకం తెస్తున్నాడు",getSong:"పాట తెరుస్తున్నాడు",addSong:"మీ పాటను భద్రపరుస్తున్నాడు",pastorLogin:"తనిఖీ చేస్తున్నాడు",pastorVerify:"తనిఖీ చేస్తున్నాడు"};
+let LDN=0,LDT=null;
+const run=(fn,...a)=>{if(QUIET[fn])return run0(fn,...a);LDN++;clearTimeout(LDT);const m=LDM[fn]||"దేవదూత సమాచారం తెస్తున్నాడు";
+LDT=setTimeout(()=>{const v=VERSES[Math.floor(Math.random()*VERSES.length)];$("#ldm").textContent=m;$("#ldv").textContent="“"+v[1]+"” — "+v[0];$("#ld").classList.add("on")},350);
+return run0(fn,...a).finally(()=>{LDN=Math.max(0,LDN-1);if(!LDN){clearTimeout(LDT);$("#ld").classList.remove("on")}})};
 if(DEMO){const d=document.createElement("div");d.style.cssText="background:#3a2a10;color:#f6e3a1;font-size:12px;text-align:center;padding:5px 8px;border-bottom:1px solid #8a6d2f";d.innerHTML="🔧 డెమో ప్రివ్యూ: డేటా సేవ్ అవ్వదు. ప్రయత్నించడానికి ఫోన్ <b>9999999999</b> · మీ PIN <b>4321</b> · పాస్టర్ PIN <b>1234</b> (లోగో 5 సార్లు నొక్కండి)";document.body.insertBefore(d,document.querySelector("nav"))}
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=t=>t?new Date(t).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short",timeZone:"Asia/Kolkata"}):"";
@@ -123,7 +175,7 @@ $("#logo").innerHTML=CFG.logo?`<img src="${esc(CFG.logo)}" alt="logo">`:`<svg vi
 let S={step:"choose",mode:"",note:"",upin:"",addMode:false,phone:"",people:[],person:null,v:"home",pin:""},taps=0,tt;
 $("#logo").onclick=()=>{taps++;clearTimeout(tt);tt=setTimeout(()=>taps=0,2500);if(taps>=5){taps=0;S.v="pastor";nav();render()}};
 function nav(){$("#nS").style.display=(S.person||S.v==="songs")?"":"none";$("#nH").className=S.v==="home"?"p":"";$("#nA").className=S.v==="about"?"p":"";$("#nS").className=S.v==="songs"?"p":""}
-$("#nH").onclick=()=>{S.step="choose";S.v="home";nav();render()};$("#nA").onclick=()=>{S.v="about";nav();render()};$("#nS").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};
+$("#nH").onclick=()=>{S.step=S.person?"menu":"choose";S.v="home";nav();render()};$("#nA").onclick=()=>{S.v="about";nav();render()};$("#nS").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};
 const phoneA=`<a class="ph" href="tel:${CFG.phone}" target="_top">📞 ${CFG.phone}</a>`;
 const socials=()=>{const L=CFG.links,b=(u,t,c)=>u?`<a class="btn" style="background:${c};color:#fff" target="_blank" rel="noopener" href="${esc(u)}">${t}</a>`:"";const h=b(L.whatsapp,"💬 WhatsApp","#25d366")+b(L.youtube,"▶ YouTube","#e00")+b(L.instagram,"📷 Instagram","#c13584")+b(L.facebook,"👍 Facebook","#1877f2");return h?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${h}</div>`:""};
 const pastorBox=()=>`<div class="card"><h2 style="text-align:center">వివరాలు / Details</h2><div class="dgrid">${CFG.photo?`<img class="dph" src="${esc(CFG.photo)}" alt="">`:`<div class="dph" style="display:flex;align-items:center;justify-content:center;font-size:48px">🙏</div>`}<div class="dtx"><b>${esc(CFG.name)}</b><span>Pastor ${esc(CFG.pastor)}</span><small>📍 ${esc(CFG.addr)}</small>${phoneA}</div></div>${socials()}</div>`;
@@ -139,39 +191,44 @@ for(let f=13;f>=10;f-=.75){tx.style.setProperty("--f",f+"px");let size=110,h=0;
 for(let i=0;i<5;i++){ph.style.width=ph.style.height=size+"px";tx.style.height="auto";h=tx.getBoundingClientRect().height;const ns=Math.round(Math.max(96,Math.min(h,cap)));if(ns===size)break;size=ns}
 if(h<=cap+1||f<=10.3){ph.style.width=ph.style.height=size+"px";tx.style.height=size+"px";break}}})}
 window.addEventListener("resize",fitDetails);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitDetails);
-function render(){try{if(WLK){WLK.release();WLK=null}}catch(e){}nav();({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs})[S.v]();window.scrollTo(0,0);fitDetails();setTimeout(fitDetails,300)}
+function render(){try{if(WLK){WLK.release();WLK=null}}catch(e){}nav();app.onclick=null;clearTimeout(S.dTm);({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs,bible:rBible,daily:rDaily})[S.v]();window.scrollTo(0,0);fitDetails();setTimeout(fitDetails,300)}
 /* ===== పాటల పుస్తకం / Song Book ===== */
 let WLK=null;const SGK="pol_sg",SGF="pol_fs";
 const sgSaved=()=>{try{return JSON.parse(localStorage.getItem(SGK)||"null")}catch(e){return null}};
-const sgForget=()=>{try{localStorage.removeItem(SGK)}catch(e){}S.sc=null;S.sgl=null;S.sgc={}};
+const sgForget=()=>{try{localStorage.removeItem(SGK);localStorage.removeItem("pol_sl");localStorage.removeItem("pol_sc")}catch(e){}S.sc=null;S.sgl=null;S.sgc={}};
+const SLK="pol_sl",SCK="pol_sc";
+const slLoad=()=>{try{const o=JSON.parse(localStorage.getItem(SLK)||"null");return Array.isArray(o)?o:null}catch(e){return null}};
+const scAll=()=>{try{return JSON.parse(localStorage.getItem(SCK)||"{}")||{}}catch(e){return{}}};
+const scPut=(id,d)=>{try{const c=scAll();c[id]=d;localStorage.setItem(SCK,JSON.stringify(c))}catch(e){}};
+const slSave=l=>{try{localStorage.setItem(SLK,JSON.stringify(l));const c=scAll(),k={};let ch=0;l.forEach(x=>k[x.id]=1);Object.keys(c).forEach(id=>{if(!k[id]){delete c[id];ch=1}});if(ch)localStorage.setItem(SCK,JSON.stringify(c))}catch(e){}};
+function slRefresh(){S.slAt=Date.now();run0("getSongs",S.sc.p,S.sc.n).then(l=>{const same=JSON.stringify(l)===JSON.stringify(S.sgl);slSave(l);S.sgl=l;if(!same&&S.v==="songs"&&S.sg.st==="list")rSongs()}).catch(e=>{sgFail(e)})}
 const sgFail=e=>{if(/PIN తప్పు|చాలా తప్పు/.test(e.message)){sgForget();S.sgErr=e.message;rSongs();return true}return false};
 function rSongs(){S.sg=S.sg||{st:"list",q:""};S.sgc=S.sgc||{};if(!S.sc){const v=sgSaved();if(v&&v.p&&v.n)S.sc=v}
 if(!S.sc)return sgLogin();if(S.sg.st==="add")return sgAdd();if(S.sg.st==="view")return sgView();sgList()}
 function sgLogin(){app.innerHTML=`<div class="card"><h2 style="text-align:center">🎵 Song Book / పాటల పుస్తకం</h2><p class="mu" style="text-align:center">సభ్యులందరికీ. మీ ఫోన్ నంబర్, PIN తో తెరవండి.</p><label>Phone / ఫోన్ నంబర్</label><input id="sp" type="tel" inputmode="numeric" maxlength="10"><label>PIN</label><input id="sn" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
 <label style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" id="sr" checked style="width:auto"> ఈ ఫోన్‌లో గుర్తుంచుకో (ప్రతిసారి PIN అడగదు)</label><p class="err" id="e">${esc(S.sgErr||"")}</p><button class="p" id="sgo" data-t="Open / తెరవండి" style="width:100%">Open / తెరవండి</button><p class="mu">కొత్తవారా? ముందు <b>Home</b> లో "New Member" ద్వారా చేరండి.</p></div>`;S.sgErr="";
 $("#sgo").onclick=async()=>{const p=$("#sp").value.replace(/\D/g,""),n=$("#sn").value.replace(/\D/g,"");if(p.length!==10||n.length!==4){$("#e").textContent="10 అంకెల నంబర్, 4 అంకెల PIN ఇవ్వండి";return}busy($("#sgo"),true);
-try{S.sgl=await run("getSongs",p,n);S.sc={p,n};if($("#sr").checked){try{localStorage.setItem(SGK,JSON.stringify(S.sc))}catch(e){}}rSongs()}catch(e){$("#e").textContent=e.message;busy($("#sgo"),false)}}}
-function sgList(){if(!S.sgl){app.innerHTML='<div class="card center">పాటలు లోడ్ అవుతున్నాయి…</div>';run("getSongs",S.sc.p,S.sc.n).then(l=>{S.sgl=l;if(S.v==="songs")rSongs()}).catch(e=>{if(!sgFail(e))app.innerHTML=`<div class="card center"><p class="err">${esc(e.message)}</p><button class="p" id="rt">మళ్ళీ ప్రయత్నించండి</button></div>`,$("#rt").onclick=()=>rSongs()});return}
-app.innerHTML=`<div class="card"><h2>🎵 Song Book / పాటల పుస్తకం</h2><input id="sq" type="search" placeholder="🔍 పాట పేరు / రచయిత పేరు రాయండి…" autocomplete="off" style="font-size:18px;padding:12px" value="${esc(S.sg.q||"")}"><div class="mu" id="sc" style="margin:6px 0"></div><div id="sl"></div></div>
+try{S.sgl=await run("getSongs",p,n);slSave(S.sgl);S.slAt=Date.now();S.sc={p,n};if($("#sr").checked){try{localStorage.setItem(SGK,JSON.stringify(S.sc))}catch(e){}}rSongs()}catch(e){$("#e").textContent=e.message;busy($("#sgo"),false)}}}
+function sgList(){if(!S.sgl){const c=slLoad();if(c){S.sgl=c;S.slAt=0}}if(S.sgl&&Date.now()-(S.slAt||0)>60000)slRefresh();if(!S.sgl){app.innerHTML='<div class="card center">పాటలు లోడ్ అవుతున్నాయి…</div>';run("getSongs",S.sc.p,S.sc.n).then(l=>{S.sgl=l;slSave(l);S.slAt=Date.now();if(S.v==="songs")rSongs()}).catch(e=>{if(!sgFail(e))app.innerHTML=`<div class="card center"><p class="err">${esc(e.message)}</p><button class="p" id="rt">మళ్ళీ ప్రయత్నించండి</button></div>`,$("#rt").onclick=()=>rSongs()});return}
+app.innerHTML=`${S.person?'<button id="smn" style="width:100%;margin-bottom:8px">← మెనూ / Menu</button>':""}<div class="card"><h2>🎵 Song Book / పాటల పుస్తకం</h2><input id="sq" type="search" placeholder="🔍 పాట పేరు / రచయిత పేరు రాయండి…" autocomplete="off" style="font-size:18px;padding:12px" value="${esc(S.sg.q||"")}"><div class="mu" id="sc" style="margin:6px 0"></div><div id="sl"></div></div>
 <button class="p" id="sadd" style="width:100%;margin-bottom:8px">➕ కొత్త పాట చేర్చండి / Add Song</button><div class="row"><button id="srf">🔄 Refresh</button><button id="sfg">🚪 ఈ ఫోన్ నుండి బయటకు</button></div>`;
 const draw=()=>{const q=$("#sq").value.trim().toLowerCase();S.sg.q=$("#sq").value;const a=S.sgl.filter(x=>!q||x.t.toLowerCase().includes(q)||(x.a||"").toLowerCase().includes(q));$("#sc").textContent=q?a.length+" పాటలు దొరికాయి":"మొత్తం "+S.sgl.length+" పాటలు";
 $("#sl").innerHTML=a.slice(0,80).map(x=>`<div class="item" data-sid="${esc(x.id)}"><b>🎵 ${esc(x.t)}</b> <span class="mu">${x.x?"📝":""}${x.i?" 📷":""}</span>${x.a?`<div class="mu">✍️ ${esc(x.a)}</div>`:""}</div>`).join("")||`<div class="mu">ఈ పేరుతో పాట లేదు. మీరే చేర్చండి 👇</div>`+(a.length>80?"":"")};
-draw();$("#sq").oninput=draw;
+draw();$("#sq").oninput=draw;if($("#smn"))$("#smn").onclick=()=>{S.v="home";S.step="menu";nav();render()};
 $("#sl").onclick=e=>{const el=e.target.closest("[data-sid]");if(el){S.sg.st="view";S.sg.id=el.dataset.sid;rSongs()}};
-$("#sadd").onclick=()=>{S.sg.st="add";S.sgI=[];rSongs()};$("#srf").onclick=()=>{S.sgl=null;rSongs()};$("#sfg").onclick=()=>{if(confirm("ఈ ఫోన్ నుండి బయటకు వెళ్ళాలా? మళ్ళీ వచ్చినప్పుడు PIN అడుగుతుంది."))sgForget(),rSongs()}}
-function sgView(){const id=S.sg.id,d=S.sgc[id],back=()=>{S.sg.st="list";rSongs()};
-if(!d){app.innerHTML='<div class="card center">తెరుచుకుంటోంది…</div>';run("getSong",S.sc.p,S.sc.n,id).then(x=>{x.imgs=[];S.sgc[id]=x;if(S.v==="songs"&&S.sg.st==="view")sgView()}).catch(e=>{if(!sgFail(e)){alert(e.message);back()}});return}
+$("#sadd").onclick=()=>{S.sg.st="add";S.sgI=[];rSongs()};$("#srf").onclick=()=>{try{localStorage.removeItem(SLK)}catch(e){}S.sgl=null;rSongs()};$("#sfg").onclick=()=>{if(confirm("ఈ ఫోన్ నుండి బయటకు వెళ్ళాలా? మళ్ళీ వచ్చినప్పుడు PIN అడుగుతుంది."))sgForget(),rSongs()}}
+function sgView(){{const _i=S.sg.id;if(!S.sgc[_i]){const c=scAll()[_i];if(c){c.imgs=[];S.sgc[_i]=c}}}const id=S.sg.id,d=S.sgc[id],back=()=>{S.sg.st="list";rSongs()};
+if(!d){app.innerHTML='<div class="card center">తెరుచుకుంటోంది…</div>';run("getSong",S.sc.p,S.sc.n,id).then(x=>{x.imgs=[];S.sgc[id]=x;scPut(id,{id:x.id,title:x.title,lyrics:x.lyrics,n:x.n,author:x.author,by:x.by});if(S.v==="songs"&&S.sg.st==="view")sgView()}).catch(e=>{if(!sgFail(e)){alert(e.message);back()}});return}
 let fs=+(localStorage.getItem(SGF)||20);
-app.innerHTML=`<button id="sb" style="width:100%;margin-bottom:8px">← పాటల జాబితా / Back</button><div class="card"><h2 style="text-align:center">🎵 ${esc(d.title)}</h2>${d.author?`<div class="mu" style="text-align:center;margin:-4px 0 8px">✍️ ${esc(d.author)}</div>`:""}<div class="row" style="justify-content:center;margin-bottom:8px"><button id="fm">A−</button><button id="fp">A+</button></div>${d.lyrics?`<div id="ly" style="white-space:pre-wrap;line-height:1.9;font-size:${fs}px">${esc(d.lyrics)}</div>`:""}<div id="ims">${Array.from({length:d.n},(_,i)=>`<div id="im${i}" class="mu" style="text-align:center;margin:10px 0">⏳ ఫోటో ${i+1} లోడ్ అవుతోంది…</div>`).join("")}</div>${d.mine?'<button id="sdl" style="width:100%;margin-top:14px">🗑 ఈ పాటను తొలగించు (మీరు చేర్చినది)</button>':""}</div>`;
+app.innerHTML=`<button id="sb" style="width:100%;margin-bottom:8px">← పాటల జాబితా / Back</button><div class="card"><h2 style="text-align:center">🎵 ${esc(d.title)}</h2>${d.author?`<div class="mu" style="text-align:center;margin:-4px 0 8px">✍️ ${esc(d.author)}</div>`:""}<div class="row" style="justify-content:center;margin-bottom:8px"><button id="fm">A−</button><button id="fp">A+</button></div>${d.lyrics?`<div id="ly" style="white-space:pre-wrap;line-height:1.9;font-size:${fs}px">${esc(d.lyrics)}</div>`:""}<div id="ims">${Array.from({length:d.n},(_,i)=>`<div id="im${i}" class="mu" style="text-align:center;margin:10px 0">⏳ ఫోటో ${i+1} లోడ్ అవుతోంది…</div>`).join("")}</div></div>`;
 $("#sb").onclick=back;const z=k=>{fs=Math.max(14,Math.min(40,fs+k));try{localStorage.setItem(SGF,fs)}catch(e){}if($("#ly"))$("#ly").style.fontSize=fs+"px"};$("#fm").onclick=()=>z(-2);$("#fp").onclick=()=>z(2);
-if($("#sdl"))$("#sdl").onclick=async()=>{if(!confirm("ఈ పాటను తొలగించాలా?"))return;try{await run("deleteSong",S.sc.p,S.sc.n,id);delete S.sgc[id];S.sgl=null;back()}catch(e){alert(e.message)}};
 const show=(i,u)=>{const el=$("#im"+i);if(el){el.outerHTML=`<img id="im${i}" src="${u}" style="width:100%;border-radius:8px;margin:10px 0;background:#fff" alt="">`}};
 for(let i=0;i<d.n;i++){if(d.imgs[i])show(i,d.imgs[i]);else run("getSongImage",S.sc.p,S.sc.n,id,i).then(u=>{d.imgs[i]=u;if(S.sg.id===id&&S.sg.st==="view")show(i,u)}).catch(e=>{const el=$("#im"+i);if(el)el.textContent="⚠️ ఫోటో రాలేదు"})}
 try{if(navigator.wakeLock)navigator.wakeLock.request("screen").then(l=>{WLK=l}).catch(()=>{})}catch(e){}}
 function sgAdd(){app.innerHTML=`<button id="sb" style="width:100%;margin-bottom:8px">← వెనుకకు / Back</button><div class="card"><h2>➕ కొత్త పాట / New Song</h2><label>Song Title / పాట పేరు *</label><input id="st" value="${esc(S.sgT||"")}"><label>Author / రచయిత (పాట రాసినవారి పేరు)</label><input id="sa" value="${esc(S.sgA||"")}" placeholder="ఉదా: పాట రాసినవారి పేరు"><label>Lyrics / పాట సాహిత్యం * (టైప్ చేయండి)</label><textarea id="sx" rows="10" placeholder="పాట ఇక్కడ రాయండి…">${esc(S.sgX||"")}</textarea><p class="err" id="e"></p><button class="p" id="ssv" data-t="Save / సేవ్ చేయండి" style="width:100%">Save / సేవ్ చేయండి</button></div>`;
 const keep=()=>{S.sgT=$("#st").value;S.sgA=$("#sa").value;S.sgX=$("#sx").value},clear=()=>{S.sgT="";S.sgA="";S.sgX=""};
 $("#sb").onclick=()=>{keep();S.sg.st="list";rSongs()};
-$("#ssv").onclick=async()=>{keep();if(!S.sgT.trim()){$("#e").textContent="పాట పేరు రాయండి";return}if(!S.sgX.trim()){$("#e").textContent="పాట సాహిత్యం రాయండి";return}busy($("#ssv"),true);try{await run("addSong",S.sc.p,S.sc.n,{title:S.sgT,author:S.sgA,lyrics:S.sgX});clear();S.sgl=null;S.sg.st="list";S.sg.q="";rSongs()}catch(e){if(!sgFail(e)){$("#e").textContent=e.message;busy($("#ssv"),false)}}}}
+$("#ssv").onclick=async()=>{keep();if(!S.sgT.trim()){$("#e").textContent="పాట పేరు రాయండి";return}if(!S.sgX.trim()){$("#e").textContent="పాట సాహిత్యం రాయండి";return}busy($("#ssv"),true);try{await run("addSong",S.sc.p,S.sc.n,{title:S.sgT,author:S.sgA,lyrics:S.sgX});clear();try{localStorage.removeItem(SLK)}catch(e){}S.sgl=null;S.sg.st="list";S.sg.q="";rSongs()}catch(e){if(!sgFail(e)){$("#e").textContent=e.message;busy($("#ssv"),false)}}}}
 
 function rAbout(){const sv=(t,p)=>`<div style="background:var(--ac2);border-radius:12px;padding:12px;margin-bottom:8px"><b style="color:var(--gold)">${t}</b><p style="margin:6px 0 0">${p}</p></div>`;
 app.innerHTML=`<div class="verse"><div class="mu">Foundation Verse / మా పునాది వాక్యం</div>“${esc(CFG.verse[0])}”<div class="mu" style="margin-top:6px">— ${esc(CFG.verse[1])}</div></div>
@@ -197,8 +254,8 @@ function rHome(){const st=S.step;
 if(st==="choose"){const tv=VERSES[Math.floor((Date.now()+19800000)/864e5)%VERSES.length];app.innerHTML=`<p style="text-align:center;color:var(--gold);font-size:16px;padding:6px 10px">“${esc(tv[1])}”<br><span class="mu">— ${esc(tv[0])}</span></p>
 <div class="card center"><div style="font-size:44px">🕊️</div><h2>New Member / కొత్త సభ్యులు</h2><p class="mu">First time here? Fill your details and submit your prayer request.<br>మొదటిసారి వచ్చారా? మీ వివరాలు, ప్రార్థన అభ్యర్థన ఇవ్వండి.</p><button class="p" id="c1">Begin / ప్రారంభించండి ✦</button></div>
 <div class="card center"><div style="font-size:44px">🙏</div><h2>Existing Member / ఇప్పటికే సభ్యులు</h2><p class="mu">Already with us? Use your phone number and PIN to continue.<br>మీ ఫోన్ నంబర్, PIN తో కొనసాగండి.</p><button class="p" id="c2">Continue / కొనసాగండి ✦</button></div>
-<div style="text-align:center;margin-bottom:12px"><button id="a2h" style="font-size:13px">📲 Add to Home Screen / హోమ్ స్క్రీన్‌కి చేర్చండి</button> ${shareBtn()}</div>`+pastorBox();
-$("#a2h").onclick=a2h;$("#c1").onclick=()=>{S.mode="new";S.step="phone";render()};$("#c2").onclick=()=>{S.mode="old";S.step="phone";render()}}
+<div style="text-align:center;margin-bottom:12px">${window.navigator.standalone||matchMedia("(display-mode: standalone)").matches?"":`<button id="a2h" style="font-size:13px">📲 Add to Home Screen / హోమ్ స్క్రీన్‌కి చేర్చండి</button>`} ${shareBtn()}</div>`+pastorBox();
+if($("#a2h"))$("#a2h").onclick=a2h;$("#c1").onclick=()=>{S.mode="new";S.step="phone";render()};$("#c2").onclick=()=>{S.mode="old";S.step="phone";render()}}
 else if(st==="phone"){const nw=S.mode==="new";app.innerHTML=`<div class="card"><h2 style="text-align:center">🙏 Welcome / స్వాగతం 🙏</h2><label>Your Phone Number / మీ ఫోన్ నంబర్ (ఇదే మీ ID)</label><input id="ph" type="tel" inputmode="numeric" maxlength="10" placeholder="10 అంకెల నంబర్">
 <label>${nw?"Create a 4-digit PIN / 4 అంకెల PIN పెట్టుకోండి":"Your PIN / మీ 4 అంకెల PIN"}</label><input id="pn" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
 <div class="mu" style="margin-top:4px">${nw?"ఈ PIN గుర్తుంచుకోండి, మళ్లీ వచ్చినప్పుడు కావాలి. / Remember this PIN for next time.":"PIN మర్చిపోతే పాస్టర్ గారిని సంప్రదించండి. / Forgot PIN? Contact the Pastor."}</div>
@@ -209,7 +266,7 @@ $("#go").onclick=async()=>{const p=$("#ph").value.replace(/\D/g,""),pn=$("#pn").
 S.phone=p;S.upin=pn;if(nw){S.addMode=false;S.step="new";render();return}
 busy($("#go"),true);try{S.people=await run("getNames",p,pn);S.sc={p:p,n:pn};S.my=[];try{S.my=(await run("getMyPrayers",p,pn))||[]}catch(x){}S.step="pick";render()}catch(e){$("#e").textContent=e.message;busy($("#go"),false)}}}
 else if(st==="pick"){app.innerHTML=`${greetCards()}<div class="card"><h2>Select Your Name / మీ పేరు ఎంచుకోండి</h2>${S.people.map((p,i)=>`<div class="item" data-i="${i}">👤 <b>${esc(p.name)}</b></div>`).join("")}<div class="item" data-i="new">➕ మరొక కొత్త పేరు చేర్చండి</div></div>`+pastorBox();
-drawGC();app.querySelectorAll(".item").forEach(e=>e.onclick=()=>{const i=e.dataset.i;if(i==="new"){S.addMode=true;S.step="new"}else{S.person=S.people[+i];S.step="back"}render()})}
+drawGC();app.querySelectorAll(".item").forEach(e=>e.onclick=()=>{const i=e.dataset.i;if(i==="new"){S.addMode=true;S.step="new"}else{S.person=S.people[+i];S.step="menu"}render()})}
 else if(st==="new"){app.innerHTML=`<div class="card"><h2>${S.addMode?"Add Another Name / మరొక పేరు":"New Details / కొత్త వివరాలు"}</h2><div class="mu">ఫోన్ / Phone: ${esc(S.phone)}</div>
 <label>Full Name / పూర్తి పేరు *</label><input id="nm"><label>Occupation / వృత్తి (మీరు ఏ పని చేస్తారు?)</label><input id="job" placeholder="ఉదా: రైతు, టీచర్, డ్రైవర్">
 <label>Date of Birth / పుట్టిన తేదీ</label><input id="dob" type="date"><label>Marriage Date / వివాహ తేదీ (ఉంటే)</label><input id="an" type="date">
@@ -217,22 +274,118 @@ else if(st==="new"){app.innerHTML=`<div class="card"><h2>${S.addMode?"Add Anothe
 <label>Can we call you? / మీకు ఫోన్ చేయవచ్చా?</label><select id="call"><option value="అవును">అవును, ఫోన్ చేయండి</option><option value="వద్దు">వద్దు</option></select>${upiBox()}<p class="err" id="e"></p><button class="p" id="sub" data-t="Submit / సమర్పించండి" style="width:100%;margin-top:12px">Submit / సమర్పించండి</button></div>`+pastorBox();bindUpi();
 $("#sub").onclick=async()=>{const nm=$("#nm").value.trim();if(!nm){$("#e").textContent="పేరు తప్పనిసరి";return}busy($("#sub"),true);
 try{await run("saveEntry",{phone:S.phone,pin:S.upin,name:nm,job:$("#job").value,dob:$("#dob").value,anniv:$("#an").value,address:$("#ad").value,area:$("#area").value,email:$("#em").value,prayer:$("#pr").value,callOk:$("#call").value});done()}catch(e){$("#e").textContent=e.message;busy($("#sub"),false)}}}
-else if(st==="back"){const p=S.person;app.innerHTML=`${p.bd?gcard(p,"bd"):""}${p.an?gcard(p,"an"):""}<div class="card center"><div style="font-size:44px">🎵</div><h2>Song Book / పాటల పుస్తకం</h2><p class="mu">పాట పేరు టైప్ చేయగానే పాట తెరుచుకుంటుంది. కొత్త పాటలు మీరూ చేర్చవచ్చు.</p><button class="p" id="c3">Open / తెరవండి ✦</button></div>${myBox(p.id)}<div class="card"><h2>🙏 Our beloved ${esc(p.name)}</h2>
+else if(st==="menu"){const p=S.person,bp=bpLoad(p.id),pg=bp?bpStat(bp):null;
+const tl=(id,ic,t1,t2,sub,i)=>`<button class="tile" id="${id}" style="animation-delay:${i*90}ms"><span class="ti">${ic}</span><b>${t1}</b><small>${t2}</small>${sub?`<em>${sub}</em>`:""}</button>`;
+app.innerHTML=`${p.bd?gcard(p,"bd"):""}${p.an?gcard(p,"an"):""}<div class="mhead"><button class="avb" id="av" aria-label="photo">${avHtml(p.id)}<i>✏️</i></button><div><div class="mu">స్వాగతం / Welcome</div><b>Our beloved ${esc(p.name)}</b></div></div>
+<div class="tiles">${tl("t1","🙏","Prayers &amp; Testimony","ప్రార్థన, సాక్ష్యం","",0)}${tl("t2","🎵","Song Book","పాటల పుస్తకం","",1)}${tl("t3","📖","Bible Reading Plan","బైబిల్ చదివే ప్లాన్",pg?pg.pct+"% ✓":"",2)}${tl("t4","🌅","Daily Devotion","ప్రతి రోజు ధ్యానం",dlNew("devotion")?"🆕 నేటిది":"",3)}${tl("t5","🤲","Daily Prayer","ప్రతి రోజు ప్రార్థన",dlNew("prayer")?"🆕 నేటిది":"",4)}${tl("t6","💬","Daily Testimony","ప్రతి రోజు సాక్ష్యం",dlNew("testimony")?"🆕 నేటిది":"",5)}</div>
+<div id="ntb"></div>${CFG.upi?`<div class="card">${upiBox()}</div>`:""}<button id="sw" style="width:100%;margin-bottom:12px">👥 వేరే పేరు ఎంచుకోండి / Change name</button>`+pastorBox();
+bindUpi();drawGC();
+$("#t1").onclick=()=>{S.step="back";render()};$("#t2").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};$("#t3").onclick=()=>{S.v="bible";S.bpAll=false;nav();render()};
+$("#sw").onclick=()=>{S.person=null;S.step="pick";nav();render()};
+["devotion","prayer","testimony"].forEach((k,j)=>$("#t"+(4+j)).onclick=()=>{S.v="daily";S.dk=k;nav();render()});$("#av").onclick=()=>avPick(p);ntInit();dlMenu()}
+else if(st==="back"){const p=S.person;app.innerHTML=`<button id="mb" style="width:100%;margin-bottom:8px">← మెనూ / Menu</button>${myBox(p.id)}<div class="card"><h2>🙏 Our beloved ${esc(p.name)}</h2>
 ${p.needJob?`<label>Occupation / వృత్తి (మీరు ఏ పని చేస్తారు?)</label><input id="job">`:""}${p.needDob?`<label>Date of Birth / పుట్టిన తేదీ</label><input id="dob" type="date">`:""}${p.needAnniv?`<label>Marriage Date / వివాహ తేదీ (ఉంటే)</label><input id="an" type="date">`:""}${p.needEmail?`<label>Email / ఇమెయిల్</label><input id="em" type="email">`:""}${p.needArea?`<label>Village / ఊరు</label><input id="area"><p class="mu" style="margin:4px 0 0">📍 మీ ఊరు చెబితే పాస్టర్ గారు మిమ్మల్ని కలవడానికి, ఫోన్ చేయడానికి వీలవుతుంది.</p>`:""}
 <label>New Prayer Request / కొత్త ప్రార్థన అభ్యర్థన</label><textarea id="pr"></textarea>
 <label>Testimony / గతంలో ప్రార్థనకు సాక్ష్యం</label><textarea id="ts" placeholder="దేవుడు చేసిన మేలు రాయండి"></textarea>
-${upiBox()}<p class="err" id="e"></p><button class="p" id="sub" data-t="Submit / సమర్పించండి" style="width:100%;margin-top:12px">Submit / సమర్పించండి</button></div>`+pastorBox();bindUpi();drawGC();$("#c3").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};
+${upiBox()}<p class="err" id="e"></p><button class="p" id="sub" data-t="Submit / సమర్పించండి" style="width:100%;margin-top:12px">Submit / సమర్పించండి</button></div>`+pastorBox();bindUpi();$("#mb").onclick=()=>{S.step="menu";render()};
 $("#sub").onclick=async()=>{const g=i=>$(i)?$(i).value:"";busy($("#sub"),true);
 try{await run("saveEntry",{phone:S.phone,pin:S.upin,pid:p.id,job:g("#job"),dob:g("#dob"),anniv:g("#an"),email:g("#em"),area:g("#area"),prayer:g("#pr"),testimony:g("#ts")});done()}catch(e){$("#e").textContent=e.message;busy($("#sub"),false)}}}
 else if(st==="done"){const v=VERSES[Math.floor(Math.random()*VERSES.length)];app.innerHTML=`<div class="card"><h2 style="text-align:center">🙏 Thank You / ధన్యవాదాలు 🙏</h2><p>మీ అభ్యర్థన పాస్టర్ గారికి చేరింది.</p><div class="verse">“${esc(v[1])}”<div class="mu" style="margin-top:6px">— ${esc(v[0])}</div></div><div style="text-align:center;margin-top:12px">${shareBtn()}</div><button class="p" id="again" style="width:100%;margin-top:12px">Start Again / మళ్లీ మొదటికి</button></div>`+pastorBox();$("#again").onclick=()=>{S.step="choose";S.upin="";render()}}}
 let dip=null;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e});
 if(CFG.backend&&"serviceWorker" in navigator&&location.protocol==="https:")try{navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}
-function a2h(){if(dip){dip.prompt();dip=null;return}const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent);
-const ad=`<div style="background:var(--ac2);border-radius:12px;padding:12px;margin-bottom:8px"><b style="color:var(--gold)">🤖 Android (Chrome)</b><ol style="margin:6px 0 0;padding-left:20px"><li>పైన కుడివైపు <b>⋮</b> (మూడు చుక్కలు) నొక్కండి</li><li><b>Add to Home screen</b> / "హోమ్ స్క్రీన్‌కు జోడించు" ఎంచుకోండి</li><li><b>Add</b> నొక్కండి</li></ol></div>`;
-const ip=`<div style="background:var(--ac2);border-radius:12px;padding:12px;margin-bottom:8px"><b style="color:var(--gold)">🍎 iPhone (Safari)</b><ol style="margin:6px 0 0;padding-left:20px"><li>కింద <b>Share</b> (పైకి బాణం గుర్తు) నొక్కండి</li><li><b>Add to Home Screen</b> ఎంచుకోండి</li><li><b>Add</b> నొక్కండి</li></ol></div>`;
-$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>📲 Add to Home Screen / హోమ్ స్క్రీన్‌కి చేర్చండి</h2><p class="mu">అప్పుడు మిగతా యాప్‌ల లాగే ఐకాన్ నొక్కి నేరుగా తెరవవచ్చు.</p>${ios?ip+ad:ad+ip}<button class="p" style="width:100%;margin-top:6px" id="cl4">OK / సరే</button></div></div>`;
-$("#cl4").onclick=()=>$("#modal").innerHTML="";$("#mm").onclick=e=>{if(e.target.id==="mm")$("#modal").innerHTML=""}}
+function a2h(){if(dip){dip.prompt();dip=null;return}
+const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),iph=/iPhone|iPod/i.test(ua);
+const box=(t,l)=>`<div style="background:var(--ac2);border-radius:12px;padding:12px;margin-bottom:8px"><b style="color:var(--gold)">${t}</b><ol style="margin:6px 0 0;padding-left:20px;line-height:1.9">${l}</ol></div>`;
+const ip=box("🍎 iPhone / iPad (Safari)",`<li>ఈ యాప్ <b>Safari</b> లో తెరిచి ఉండాలి (WhatsApp, Instagram లోపల కాదు). అలా కాకపోతే లింక్ కాపీ చేసి Safari లో తెరవండి.</li><li>${iph?"స్క్రీన్ <b>కింద మధ్యలో</b>":"స్క్రీన్ <b>పైన కుడివైపు</b>"} ఉన్న <b>Share</b> గుర్తు (పైకి బాణం ఉన్న చతురస్రం ⬆️) నొక్కండి.</li><li>వచ్చిన జాబితాను కిందికి జరిపి <b>Add to Home Screen</b> ("హోమ్ స్క్రీన్‌కు జోడించు") నొక్కండి.</li><li>పై కుడివైపు <b>Add</b> నొక్కండి ✅</li>`);
+const ad=box("🤖 Android (Chrome)",`<li>పైన కుడివైపు <b>⋮</b> (మూడు చుక్కలు) నొక్కండి</li><li><b>Add to Home screen</b> / "హోమ్ స్క్రీన్‌కు జోడించు" ఎంచుకోండి</li><li><b>Add</b> నొక్కండి</li>`);
+$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>📲 Add to Home Screen / హోమ్ స్క్రీన్‌కి చేర్చండి</h2><p class="mu">అప్పుడు మిగతా యాప్‌ల లాగే ఐకాన్ నొక్కి నేరుగా తెరవవచ్చు.</p>${ios?ip+'<p class="mu">⚠️ iPhone లో యాప్ దానంతట అదే చేరదు (ఆపిల్ అనుమతించదు). పై దశలు మీరే చేయాలి, 30 సెకన్లు చాలు.</p>':ad}<button class="p" style="width:100%;margin-top:6px" id="cl4">${ios?"అర్థమైంది – Share నొక్కుతాను":"OK / సరే"}</button></div></div>`;
+const rm=()=>{const w=$("#arw");if(w)w.remove()};rm();
+if(iph)document.body.insertAdjacentHTML("beforeend",'<div id="arw" style="position:fixed;left:0;right:0;bottom:4px;text-align:center;z-index:70;pointer-events:none"><div style="display:inline-block;background:var(--gold);color:#2a1647;font-weight:700;border-radius:12px;padding:7px 16px;animation:bob 1.2s ease-in-out infinite">⬇️ కింద Share ⬆️ గుర్తు నొక్కండి</div></div>');
+const cl=()=>{$("#modal").innerHTML="";if(iph)setTimeout(rm,12000);else rm()};
+$("#cl4").onclick=cl;$("#mm").onclick=e=>{if(e.target.id==="mm")cl()}}
 function done(){S.step="done";render()}
+
+/* ===== సభ్యుని ఫోటో / గుర్తు (ఈ ఫోన్‌లోనే సేవ్) ===== */
+const AVK=id=>"pol_av_"+id,AVE=["😊","😇","🙏","🕊️","✝️"];
+const avLoad=id=>{try{return JSON.parse(localStorage.getItem(AVK(id))||"null")}catch(e){return null}};
+const avHtml=id=>{const a=avLoad(id);if(a&&a.t==="p")return `<img src="${a.v}" alt="">`;if(a&&a.t==="e")return `<span class="mph">${a.v}</span>`;return CFG.photo?`<img src="${esc(CFG.photo)}" alt="">`:`<span class="mph">🙏</span>`};
+function avPick(p){const cl=()=>$("#modal").innerHTML="",done=()=>{cl();if(S.v==="home"&&S.step==="menu")rHome()},sv=o=>{try{if(o)localStorage.setItem(AVK(p.id),JSON.stringify(o));else localStorage.removeItem(AVK(p.id))}catch(e){alert("ఈ ఫోన్‌లో చోటు లేదు")}done()};
+$("#modal").innerHTML=`<div class="modal" id="mm"><div class="center"><h2>మీ ఫోటో / Your Photo</h2><p class="mu">మీ ఫోటో పెట్టుకోండి, లేదా ఒక గుర్తు ఎంచుకోండి. ఇది ఈ ఫోన్‌లో మాత్రమే ఉంటుంది.</p>
+<label class="btn" style="display:block;padding:12px;font-size:15px;cursor:pointer;background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647;margin:0 0 12px">📷 ఫోటో ఎంచుకోండి / Upload Photo<input id="avf" type="file" accept="image/*" style="display:none"></label>
+<div class="mu">లేదా ఒక గుర్తు ఎంచుకోండి:</div><div class="row" style="margin:8px 0 12px">${AVE.map(e=>`<button data-e="${e}" style="font-size:28px;padding:8px 0">${e}</button>`).join("")}</div>
+<button id="avr" style="width:100%">↩ మొదటి ఫోటోకు మార్చండి (Default)</button><button id="avc" class="p" style="width:100%;margin-top:8px">Close / మూసివేయండి</button></div></div>`;
+$("#avc").onclick=cl;$("#mm").onclick=e=>{if(e.target.id==="mm")cl()};$("#avr").onclick=()=>sv(null);
+$("#mm").querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>sv({t:"e",v:b.dataset.e}));
+$("#avf").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement("canvas");c.width=c.height=200;const x=c.getContext("2d"),m=Math.min(im.width,im.height);x.drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,200,200);sv({t:"p",v:c.toDataURL("image/jpeg",.8)})};im.onerror=()=>alert("ఈ ఫోటో తెరవలేకపోయాను");im.src=r.result};r.readAsDataURL(f)}}
+
+/* ===== రోజువారీ: Devotion / Prayer / Testimony — ఈ రోజు సందేశం మాత్రమే (సందేశాలు ఫోన్‌లో సేవ్ కావు) ===== */
+const DKS={devotion:["🌅","Daily Devotion","ప్రతి రోజు ధ్యానం"],prayer:["🤲","Daily Prayer","ప్రతి రోజు ప్రార్థన"],testimony:["💬","Daily Testimony","ప్రతి రోజు సాక్ష్యం"]};
+const dlSeen=()=>{try{return JSON.parse(localStorage.getItem("pol_dseen")||"{}")||{}}catch(e){return{}}};
+const dlNew=k=>{const x=S.dl&&S.dl[k],td=bpToday();return !!(x&&x.d===td&&dlSeen()[k]!==td)};
+function dlMenu(){const td=bpToday();if(S.dl&&S.dl.date===td&&Date.now()-(S.dlAt||0)<600000)return;S.dlAt=Date.now();run0("getDaily").then(d=>{const ch=JSON.stringify(d)!==JSON.stringify(S.dl);S.dl=d;if(ch&&S.v==="home"&&S.step==="menu")rHome()}).catch(()=>{})}
+const dlShare=(k,x)=>`🙏 ${DKS[k][1]} – ${DKS[k][2]}\n\n${x.t?"*"+x.t+"*\n\n":""}${x.x}\n\n🌐 Visit The Prince of Life Ministries 👇\n${appLink()}`;
+function rDaily(){const k=S.dk,K=DKS[k]||DKS.devotion,td=bpToday();
+const back='<button id="db" style="width:100%;margin-bottom:8px">← మెనూ / Menu</button>',goBack=()=>{S.v="home";S.step="menu";nav();render()};
+if(!S.dl||S.dl.date!==td||Date.now()-(S.dlAt||0)>600000){app.innerHTML=back+'<div class="card center">లోడ్ అవుతోంది…</div>';$("#db").onclick=goBack;
+run("getDaily").then(d=>{S.dl=d;S.dlAt=Date.now();if(S.v==="daily")rDaily()}).catch(e=>{app.innerHTML=back+`<div class="card center"><p class="err">${esc(/అభ్యర్థన/.test(e.message)?"సర్వర్ ఇంకా కొత్తది కాలేదు. పాస్టర్ గారిని అడగండి.":e.message)}</p><button class="p" id="rt">మళ్ళీ ప్రయత్నించండి</button></div>`;$("#db").onclick=goBack;$("#rt").onclick=()=>{S.dl=null;rDaily()}});return}
+const x=S.dl[k],fresh=!!(x&&x.d===td);
+if(fresh){const sn=dlSeen();sn[k]=td;try{localStorage.setItem("pol_dseen",JSON.stringify(sn))}catch(e){}}
+app.innerHTML=`${back}<div class="card"><h2 style="text-align:center;margin-bottom:8px"><span style="font-size:36px;display:block;animation:bob2 3s ease-in-out infinite">${K[0]}</span>${K[1]}<br><span class="mu">${K[2]}</span></h2>
+${x?`<div class="center" style="margin-bottom:10px">${fresh?`<span class="fresh">🆕 ఈ రోజు కొత్త సందేశం · ${fd(td)}</span>`:`<span class="mu">📅 ${fd(x.d)} నాటి సందేశం</span>`}</div><div class="sl">${x.t?`<h3 class="sh">${esc(x.t)}</h3>`:""}<div class="sx">${esc(x.x)}</div></div><a class="btn wa" target="_blank" rel="noopener" style="display:block;margin-top:16px;padding:11px;font-size:15px" href="${esc("https://wa.me/?text="+encodeURIComponent(dlShare(k,x)))}">💬 WhatsApp లో షేర్ చేయండి / Share</a>`:`<p class="mu center">ఇంకా ఏమీ చేర్చలేదు. పాస్టర్ గారు త్వరలో చేరుస్తారు 🙏</p>`}</div>`;
+$("#db").onclick=goBack}
+/* ప్రతి రోజు నోటిఫికేషన్ (Android Chrome లో యాప్ ఇన్‌స్టాల్ చేసినవారికి; ఉచితం) */
+function ntInit(){const b=$("#ntb");if(!b||!("Notification" in window)||!("serviceWorker" in navigator)||!CFG.backend)return;
+const on=Notification.permission==="granted"&&localStorage.getItem("pol_nt")==="1";
+b.innerHTML=on?`<div class="mu center" style="margin-bottom:12px">🔔 రోజువారీ నోటిఫికేషన్ ఆన్ లో ఉంది ✓</div>`:`<button id="ntn" style="width:100%;margin-bottom:12px">🔔 ప్రతి రోజు సందేశం నోటిఫికేషన్ కావాలా?</button>`;
+if($("#ntn"))$("#ntn").onclick=async()=>{try{const pm=await Notification.requestPermission();if(pm!=="granted"){alert("అనుమతి ఇవ్వలేదు. ఫోన్ సెట్టింగ్స్ లో నోటిఫికేషన్ అనుమతించండి.");return}
+const reg=await navigator.serviceWorker.ready;if(!("periodicSync" in reg)){alert("ఈ ఫోన్ (లేదా బ్రౌజర్) ప్రతి రోజు నోటిఫికేషన్‌కు సపోర్ట్ చేయదు. యాప్ తెరిచి ఈ రోజు సందేశం చూడవచ్చు.");return}
+await reg.periodicSync.register("daily-msg",{minInterval:12*36e5});localStorage.setItem("pol_nt","1");reg.showNotification("✅ నోటిఫికేషన్ ఆన్ అయింది",{body:"ప్రతి రోజు సందేశం గుర్తు చేస్తాను 🙏",icon:"icon-192.png"});ntInit()}catch(e){alert("నోటిఫికేషన్ ఆన్ చేయడం కుదరలేదు")}}}
+function dailyForm(k,x){const K=DKS[k],td=bpToday();
+$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>${K[0]} ${K[1]}<br><span class="mu">${K[2]}</span></h2><label>📅 Date / తేదీ * (ఈ తేదీ రోజున విశ్వాసులకు కొత్త సందేశంగా కనిపిస్తుంది)</label><input id="d8" type="date" value="${x?esc(x.d):td}"><label>Title / శీర్షిక</label><input id="dt" maxlength="120" value="${esc(x&&x.t||"")}"><label>Message / సందేశం *</label><textarea id="dx" maxlength="5000" style="min-height:220px">${esc(x&&x.x||"")}</textarea><p class="err" id="de"></p><button class="p" id="ds" style="width:100%">Save / సేవ్ చేయండి</button>${x?'<button id="dd" style="width:100%;margin-top:8px">🗑 Delete / తొలగించండి</button>':""}<button id="dc" style="width:100%;margin-top:8px">Cancel / రద్దు</button></div></div>`;
+if(!x){let touched=false;$("#d8").oninput=()=>touched=true;
+run0("pastorDaily",S.pin,k).then(r=>{if(touched||!$("#d8"))return;let last=r.items.length?r.items[0].d:"";if(last>=td){const d=new Date(Date.UTC(+last.slice(0,4),+last.slice(5,7)-1,+last.slice(8,10))+864e5);$("#d8").value=d.toISOString().slice(0,10)}}).catch(()=>{})}
+$("#dc").onclick=()=>$("#modal").innerHTML="";
+$("#ds").onclick=async()=>{if(!$("#d8").value){$("#de").textContent="తేదీ ఎంచుకోండి";return}if(!$("#dx").value.trim()){$("#de").textContent="సందేశం రాయండి";return}$("#ds").disabled=true;try{await run("pastorSaveDaily",S.pin,{id:x?x.id:"",kind:k,date:$("#d8").value,title:$("#dt").value,text:$("#dx").value});$("#modal").innerHTML="";S.dkp=k;rPastor(true)}catch(e){$("#de").textContent=e.message;$("#ds").disabled=false}};
+if($("#dd"))$("#dd").onclick=async()=>{if(!confirm("ఇది తొలగించాలా?"))return;try{await run("pastorDeleteDaily",S.pin,k,x.id);$("#modal").innerHTML="";rPastor(true)}catch(e){$("#de").textContent=e.message}}}
+
+/* ===== బైబిల్ చదివే ప్లాన్ (పురోగతి ఈ ఫోన్‌లోనే భద్రం; Google Sheet వాడదు) ===== */
+const BK=[["ఆదికాండము",50],["నిర్గమకాండము",40],["లేవీయకాండము",27],["సంఖ్యాకాండము",36],["ద్వితీయోపదేశకాండము",34],["యెహోషువ",24],["న్యాయాధిపతులు",21],["రూతు",4],["1 సమూయేలు",31],["2 సమూయేలు",24],["1 రాజులు",22],["2 రాజులు",25],["1 దినవృత్తాంతములు",29],["2 దినవృత్తాంతములు",36],["ఎజ్రా",10],["నెహెమ్యా",13],["ఎస్తేరు",10],["యోబు",42],["కీర్తనలు",150],["సామెతలు",31],["ప్రసంగి",12],["పరమగీతము",8],["యెషయా",66],["యిర్మీయా",52],["విలాపవాక్యములు",5],["యెహెజ్కేలు",48],["దానియేలు",12],["హోషేయ",14],["యోవేలు",3],["ఆమోసు",9],["ఓబద్యా",1],["యోనా",4],["మీకా",7],["నహూము",3],["హబక్కూకు",3],["జెఫన్యా",3],["హగ్గయి",2],["జెకర్యా",14],["మలాకీ",4],["మత్తయి",28],["మార్కు",16],["లూకా",24],["యోహాను",21],["అపొస్తలుల కార్యములు",28],["రోమా",16],["1 కొరింథీయులకు",16],["2 కొరింథీయులకు",13],["గలతీయులకు",6],["ఎఫెసీయులకు",6],["ఫిలిప్పీయులకు",4],["కొలొస్సయులకు",4],["1 థెస్సలొనీకయులకు",5],["2 థెస్సలొనీకయులకు",3],["1 తిమోతికి",6],["2 తిమోతికి",4],["తీతుకు",3],["ఫిలేమోనుకు",1],["హెబ్రీయులకు",13],["యాకోబు",5],["1 పేతురు",5],["2 పేతురు",3],["1 యోహాను",5],["2 యోహాను",1],["3 యోహాను",1],["యూదా",1],["ప్రకటన గ్రంథము",22]];
+const BPC=(()=>{let c=0;const a=BK.map(b=>{const r=[b[0],b[1],c];c+=b[1];return r});return{a,n:c}})();
+function bpRead(D,d){const N=BPC.n,s=Math.floor((d-1)*N/D),e=Math.floor(d*N/D)-1,o=[];BPC.a.forEach(b=>{const lo=Math.max(s,b[2]),hi=Math.min(e,b[2]+b[1]-1);if(lo<=hi){const x=lo-b[2]+1,y=hi-b[2]+1;o.push(b[0]+" "+(x===y?x:x+"–"+y))}});return o.join(" · ")}
+const BPK=id=>"pol_bp_"+id,bpD=o=>o.m===6?180:365;
+const bpLoad=id=>{try{const o=JSON.parse(localStorage.getItem(BPK(id))||"null");return o&&(o.m===6||o.m===12)&&o.s&&typeof o.d==="string"&&o.d.length===bpD(o)?o:null}catch(e){return null}};
+const bpSave=(id,o)=>{try{localStorage.setItem(BPK(id),JSON.stringify(o))}catch(e){}try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}};
+const bpToday=()=>new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Kolkata"});
+const bpU=d=>Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10)),bpDiff=(a,b)=>Math.round((bpU(b)-bpU(a))/864e5);
+const bpDate=(s,i)=>new Date(bpU(s)+i*864e5).toISOString().slice(0,10);
+function bpStat(o){const D=bpD(o),n=o.d.split("").filter(x=>x==="1").length,t=Math.min(D,Math.max(1,bpDiff(o.s,bpToday())+1));let st=0,i=t-1;if(o.d[i]!=="1")i--;while(i>=0&&o.d[i]==="1"){st++;i--}return{D,n,t,pct:Math.round(n*100/D),streak:st,over:bpDiff(o.s,bpToday())>=D}}
+function rBible(){const p=S.person;if(!p){S.v="home";S.step="choose";return render()}
+const back='<button id="bb" style="width:100%;margin-bottom:8px">← మెనూ / Menu</button>',goBack=()=>{S.v="home";S.step="menu";nav();render()};
+let o=bpLoad(p.id);
+if(!o){app.innerHTML=`${back}<div class="card"><div class="bkf">📖</div><h2 style="text-align:center">Bible Reading Plan / బైబిల్ చదివే ప్లాన్</h2><p class="mu center">Our beloved ${esc(p.name)}, మీకు ఏ ప్లాన్ కావాలి? ఆదికాండము నుండి ప్రకటన గ్రంథము వరకు, ప్రతి రోజు కొన్ని అధ్యాయాలు చదవండి.</p>
+<button class="plan" data-m="6"><b>🌱 6 నెలల ప్లాన్</b><small>180 రోజులు · రోజుకు సుమారు 7 అధ్యాయాలు</small></button><button class="plan" data-m="12" style="animation-delay:.12s"><b>🌳 12 నెలల ప్లాన్</b><small>365 రోజులు · రోజుకు సుమారు 3 అధ్యాయాలు</small></button>
+<p class="mu">📱 మీరు చదివినవి ఈ ఫోన్‌లోనే భద్రంగా ఉంటాయి. ఈ ఫోన్ బ్రౌజర్ డేటా తొలగిస్తే (clear data) ప్లాన్ మళ్ళీ మొదటి నుండి మొదలవుతుంది.</p></div>`;
+$("#bb").onclick=goBack;app.querySelectorAll(".plan").forEach(b=>b.onclick=()=>{const m=+b.dataset.m;bpSave(p.id,{m:m,s:bpToday(),d:"0".repeat(m===6?180:365)});S.bpAll=false;rBible()});return}
+const D=bpD(o),x=bpStat(o),T=x.t,hit=S.bpHit;S.bpHit=-1;
+const row=(i,tag)=>`<div class="bpr${o.d[i]==="1"?" ok":""}${hit===i?" hit":""}" data-i="${i}"><span class="bpc">${o.d[i]==="1"?"✓":""}</span><div><b>${tag||"Day "+(i+1)}</b> <span class="mu">${fd(bpDate(o.s,i))}</span><div>${esc(bpRead(D,i+1))}</div></div></div>`;
+const missed=[];for(let i=0;i<(x.over?D:T-1);i++)if(o.d[i]!=="1")missed.push(i);
+const cur=T-1,doneToday=o.d[cur]==="1";
+let h=back+`<div class="card"><h2>📖 ${o.m===6?"6 నెలల ప్లాన్":"12 నెలల ప్లాన్"} · Day ${T}/${D}</h2><div class="bar"><i style="width:${x.pct}%"></i></div><div class="grid" style="grid-template-columns:1fr 1fr 1fr"><div class="stat"><b>${x.pct}%</b><span>పూర్తి</span></div><div class="stat"><b>${x.n}/${D}</b><span>చదివిన రోజులు</span></div><div class="stat"><b>🔥 ${x.streak}</b><span>వరుసగా</span></div></div></div>`;
+if(x.n===D)h+=`<div class="card today center"><div class="bkf">🎉</div><h2>అభినందనలు! బైబిల్ అంతా చదివారు!</h2><p>ప్రభువుకే స్తోత్రం 🙏</p></div>`;
+else if(!x.over)h+=`<div class="card today"><h2>ఈ రోజు / Today · Day ${T}</h2><div class="rd">${esc(bpRead(D,T))}</div>${S.bpMsg?`<p class="mu" style="color:var(--gold)">${esc(S.bpMsg)}</p>`:""}<button id="bt" class="${doneToday?"":"p"}" style="width:100%">${doneToday?"✅ చదివారు (మార్చడానికి నొక్కండి)":"✅ ఈ రోజు చదివాను / Mark as read"}</button></div>`;
+else h+=`<div class="card today center"><h2>ప్లాన్ కాలం ముగిసింది</h2><p class="mu">మిగిలిన రోజులను కింద నుండి చదివి గుర్తు పెట్టండి.</p></div>`;
+S.bpMsg="";
+if(missed.length)h+=`<div class="card"><h2>⏳ వెనుకబడినవి (${missed.length})</h2><p class="mu" style="margin:-4px 0 6px">చదివినవి నొక్కి గుర్తు పెట్టండి.</p>${missed.slice(0,7).map(i=>row(i)).join("")}${missed.length>7?`<div class="mu">… మరో ${missed.length-7}. అన్నీ చూడటానికి కింద 📋 నొక్కండి.</div>`:""}</div>`;
+const nx=[];for(let i=T;i<Math.min(D,T+3);i++)nx.push(i);
+if(!x.over&&nx.length)h+=`<div class="card"><h2>📅 రాబోయే రోజులు</h2>${nx.map(i=>row(i)).join("")}</div>`;
+h+=`<button id="ba" style="width:100%;margin-bottom:8px">${S.bpAll?"▲ జాబితా మూసివేయండి":"📋 అన్ని రోజులు చూడండి"}</button>`;
+if(S.bpAll)h+=`<div class="card">${Array.from({length:D},(_,i)=>row(i)).join("")}</div>`;
+h+=`<button id="br" style="width:100%;margin-bottom:12px">🔄 ప్లాన్ మార్చండి / కొత్తగా మొదలు పెట్టండి</button>`;
+app.innerHTML=h;$("#bb").onclick=goBack;
+const tog=i=>{const a=o.d.split("");a[i]=a[i]==="1"?"0":"1";o.d=a.join("");bpSave(p.id,o);S.bpHit=i;if(i===cur&&a[i]==="1")S.bpMsg="🎉 ప్రభువుకు స్తోత్రం! ఈ రోజు వాక్యం చదివారు.";rBible()};
+app.querySelectorAll(".bpr").forEach(e=>e.onclick=()=>tog(+e.dataset.i));if($("#bt"))$("#bt").onclick=()=>tog(cur);
+$("#ba").onclick=()=>{S.bpAll=!S.bpAll;rBible()};
+$("#br").onclick=()=>{if(confirm("ప్లాన్ మార్చాలా? ఇప్పటివరకు గుర్తు పెట్టినవి తొలగిపోతాయి."))try{localStorage.removeItem(BPK(p.id));S.bpAll=false;rBible()}catch(e){}}}
 
 /* ===== పాస్టర్ (రహస్యం: లోగోను 5 సార్లు నొక్కండి) ===== */
 const ST={prayed:"✅ ప్రార్థించాను",follow:"📞 ఫాలోఅప్ కావాలి",testimony:"🎉 సాక్ష్యం వచ్చింది"};
@@ -241,6 +394,8 @@ async function rPastor(force){
 if(!S.pin){app.innerHTML=`<div class="card"><h2>🔒 Pastor Login / పాస్టర్ లాగిన్</h2><label>PIN</label><input id="pin" type="password" inputmode="numeric"><p class="err" id="e"></p><button class="p" id="ok" data-t="Enter / లోపలికి">Enter / లోపలికి</button></div>`;
 $("#ok").onclick=async()=>{const pn=$("#pin").value;busy($("#ok"),true);try{const r=await run("pastorLogin",pn);if(r.token){S.pin=r.token;rPastor(true);return}app.innerHTML=`<div class="card"><h2>🔐 Telegram Code / టెలిగ్రామ్ కోడ్</h2><p class="mu">మీ Telegram కు వచ్చిన 6 అంకెల కోడ్ ఇవ్వండి. 5 నిమిషాల్లో ముగుస్తుంది.</p><label>Code / కోడ్</label><input id="otp" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code"><p class="err" id="e"></p><button class="p" id="vk" data-t="Verify / నిర్ధారించండి">Verify / నిర్ధారించండి</button></div>`;$("#vk").onclick=async()=>{busy($("#vk"),true);try{const v=await run("pastorVerify",pn,$("#otp").value);S.pin=v.token;rPastor(true)}catch(e){$("#e").textContent=e.message;busy($("#vk"),false)}}}catch(e){$("#e").textContent=e.message;busy($("#ok"),false)}};return}
 if(force||!S.D){app.innerHTML='<div class="card center">లోడ్ అవుతోంది…</div>';bump();try{S.D=await run("pastorData",S.pin)}catch(e){S.pin="";S.D=null;rPastor();setTimeout(()=>$("#e").textContent=e.message,50);return}}
+if(S.pt==="dl"&&(force||!S.DL||S.DL.k!==(S.dkp||"devotion"))){S.dlErr="";const kk=S.dkp||"devotion";try{S.DL=await run("pastorDaily",S.pin,kk)}catch(e){S.DL={k:kk,today:"",items:[]};S.dlErr=/అభ్యర్థన/.test(e.message)?"సర్వర్ (Code.gs) ఇంకా కొత్తది కాలేదు. Apps Script లో కొత్త వెర్షన్ Deploy చేయండి.":e.message}}
+if(S.pt==="sg"&&(force||!S.SG)){S.sgErr="";try{S.SG=await run("pastorSongs",S.pin)}catch(e){S.SG=[];S.sgErr=/అభ్యర్థన/.test(e.message)?"సర్వర్ (Code.gs) ఇంకా కొత్తది కాలేదు. Apps Script లో కొత్త వెర్షన్ Deploy చేయండి.":e.message}}
 if(S.pt==="mt"&&(force||!S.M)){try{S.M=await run("pastorMeetings",S.pin)}catch(e){S.M={meetings:[],upcoming:[],err:/అభ్యర్థన/.test(e.message)?"సర్వర్ (Code.gs) ఇంకా కొత్తది కాలేదు. Apps Script లో కొత్త వెర్షన్ Deploy చేయండి.":e.message}}}
 const people=S.D.people,pr=S.D.prayers.sort((a,b)=>b.Time.localeCompare(a.Time));
 const td=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Kolkata"}),[ty,tm,tdd]=td.split("-").map(Number),T0=Date.UTC(ty,tm-1,tdd);
@@ -260,7 +415,7 @@ const memItem=(p,extra="",btn="")=>`<div class="item" data-id="${p.ID}" style="d
 const sec=(t,sub,body)=>`<div class="card"><h2>${t}</h2><p class="mu" style="margin:-4px 0 8px">${sub}</p>${body}</div>`;
 const none='<div class="mu">ఏమీ లేవు 👍</div>';
 const dateList=k=>{const a=upc(k);return a.length?a.map(x=>memItem(x.p,dl(x.days),wbtn(greet(x.p,k),"💬 శుభాకాంక్షలు"))).join(""):'<div class="mu">ఎవరూ లేరు</div>'};
-const T=S.pt||"ov",TABS=[["ov","📊 సారాంశం","Overview"],["todo","📌 చేయవలసినవి","To-Do"],["dates","🎂 తేదీలు","Dates"],["find","🔍 వెతకండి","Find"],["mt","📅 మీటింగ్స్","Meetings"]];
+const T=S.pt||"ov",TABS=[["ov","📊 సారాంశం","Overview"],["todo","📌 చేయవలసినవి","To-Do"],["dates","🎂 తేదీలు","Dates"],["find","🔍 వెతకండి","Find"],["mt","📅 మీటింగ్స్","Meetings"],["sg","🎵 పాటలు","Songs"],["dl","📢 రోజువారీ","Daily"]];
 let h=`<div class="tabs">${TABS.map(t=>`<button data-tab="${t[0]}" class="${T===t[0]?"on":""}">${t[1]}<small>${t[2]}</small></button>`).join("")}</div>`;
 if(T==="ov"){const cnt=(arr,key,pre)=>arr.filter(x=>String(x[key]).startsWith(pre)).length,kd=(k,pre)=>pr.filter(x=>x.Kind===k&&x.Time.startsWith(pre)).length;
 h+=`<div class="grid"><div class="stat"><b>${people.length}</b><span>మొత్తం సభ్యులు<br>Total members</span></div><div class="stat"><b>${today.length}</b><span>ఈ రోజు ఎంట్రీలు<br>Today's entries</span></div><div class="stat"><b>${unseen.length}</b><span>కొత్తవి (చూడనివి)<br>Unseen</span></div><div class="stat"><b>${follow.length}</b><span>ఫాలోఅప్ కావాలి<br>Follow-ups</span></div></div>
@@ -283,8 +438,16 @@ const dlab=d=>{const n=Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.sli
 const seen={},UP=(M.upcoming||[]).filter(x=>{seen[x.id]=(seen[x.id]||0)+1;return !x.repeat||seen[x.id]<=2});
 const mi=x=>`<div class="item" data-mid="${esc(x.id)}"><b>${esc(x.title)}</b> ${x.repeat?`<span class="pill">${RP[x.repeat]}</span>`:""}<div class="mu">📅 ${dlab(x.date)}<br>🕐 ${tel12(x.time)}${x.place?" · 📍 "+esc(x.place):""}</div>${x.note?`<div class="mu">📝 ${esc(x.note)}</div>`:""}</div>`;
 h+=`<button class="p" id="addmt" style="width:100%;margin-bottom:12px">➕ Add Meeting / మీటింగ్ చేర్చండి</button>`+sec("📅 Upcoming / రాబోయే మీటింగ్స్","రాబోయే 60 రోజుల్లో (ప్రతి వారం/నెల మీటింగ్స్ తదుపరి 2 సార్లు మాత్రమే చూపిస్తాను). నొక్కితే మార్చవచ్చు లేదా తొలగించవచ్చు. ప్రతి మీటింగ్‌కు 1½ గంటల ముందు Telegram లో గుర్తు వస్తుంది.",M.err?`<p class="err">${esc(M.err)}</p>`:(UP.length?UP.map(mi).join(""):none))}
+if(T==="dl"){const kp=S.dkp||"devotion",er=S.dlErr?`<p class="err">${esc(S.dlErr)}</p>`:"";
+h+=sec("📢 రోజువారీ సమాచారం","బటన్ నొక్కండి, తేదీ ఎంచుకుని శీర్షిక, సందేశం రాయండి. ఆ తేదీ రోజున విశ్వాసులకు 🆕 కొత్త సందేశంగా కనిపిస్తుంది.",er+Object.keys(DKS).map(k=>`<button class="plan" data-dk="${k}"><b>${DKS[k][0]} ${DKS[k][1]}</b><small>${DKS[k][2]} · ➕ చేర్చండి</small></button>`).join(""))
++sec("📋 చేర్చినవి","విభాగం ఎంచుకోండి. నొక్కితే మార్చవచ్చు లేదా తొలగించవచ్చు.",`<div class="row" style="margin-bottom:8px">${Object.keys(DKS).map(k=>`<button class="chip${k===kp?" on":""}" data-ls="${k}">${DKS[k][0]} ${DKS[k][1].replace("Daily ","")}</button>`).join("")}</div><input id="dq" placeholder="🔍 వెతకండి (పదం లేదా తేదీ 2026-11-05)" style="margin-bottom:6px"><div id="dll"></div>`)}
+if(T==="sg"){const L=S.SG||[];h+=sec("🎵 Songs / పాటలు ("+L.length+")","పాటను తొలగించాలంటే 🗑 నొక్కండి. తొలగించినది తిరిగి రాదు (Songs షీట్ నుండి కూడా పోతుంది).",(S.sgErr?`<p class="err">${esc(S.sgErr)}</p>`:"")+`<input id="gq" placeholder="🔍 పాట పేరు / రచయిత / చేర్చినవారు" value="${esc(S.gq||"")}"><div id="gl" style="margin-top:8px"></div>`)}
 app.innerHTML=h;
 app.onclick=e=>{const tb=e.target.closest("[data-tab]");if(tb){S.pt=tb.dataset.tab;rPastor();return}const mt=e.target.closest("[data-mid]");if(mt){meetingForm((S.M.meetings||[]).find(m=>m.ID===mt.dataset.mid));return}const el=e.target.closest("[data-id]");if(el)detail(el.dataset.id)};
+if(T==="dl"){app.querySelectorAll("[data-dk]").forEach(b=>b.onclick=()=>dailyForm(b.dataset.dk,null));app.querySelectorAll("[data-ls]").forEach(b=>b.onclick=()=>{S.dkp=b.dataset.ls;rPastor()});
+if($("#dll")){const td=S.DL.today,dr=()=>{const q=$("#dq").value.toLowerCase().trim(),a=S.DL.items.filter(x=>!q||((x.t||"")+" "+x.x+" "+x.d).toLowerCase().includes(q));$("#dll").innerHTML=a.slice(0,120).map(x=>`<div class="item" data-did="${esc(x.id)}"><b>${fd(x.d)} ${esc(x.t||"")}</b>${x.d===td?' <span class="pill">⭐ ఈ రోజు</span>':x.d>td?' <span class="pill">⏳ రాబోయేది</span>':""}<div>${esc(x.x.slice(0,90))}${x.x.length>90?"…":""}</div></div>`).join("")||'<div class="mu">ఏమీ లేవు</div>'};dr();$("#dq").oninput=dr;$("#dll").onclick=e=>{const el=e.target.closest("[data-did]");if(el)dailyForm(S.DL.k,S.DL.items.find(x=>x.id===el.dataset.did))}}}
+if(T==="sg"&&$("#gq")){const dr=()=>{const q=$("#gq").value.toLowerCase().trim();S.gq=$("#gq").value;const a=(S.SG||[]).filter(x=>!q||(x.t+" "+x.a+" "+x.n).toLowerCase().includes(q));$("#gl").innerHTML=a.slice(0,100).map(x=>`<div class="item" style="display:flex;gap:8px;align-items:center;cursor:default"><div style="flex:1;min-width:0"><b>🎵 ${esc(x.t)}</b>${x.h?' <span class="pill">Hidden</span>':""}<div class="mu">${x.a?"✍️ "+esc(x.a)+" · ":""}చేర్చినవారు: ${esc(x.n)}${x.c?" · "+fd(String(x.c).slice(0,10)):""}</div></div><button data-del="${esc(x.id)}" style="flex:none;font-size:18px">🗑</button></div>`).join("")||'<div class="mu">పాటలు లేవు</div>'};
+dr();$("#gq").oninput=dr;$("#gl").onclick=async e=>{const b=e.target.closest("[data-del]");if(!b)return;const id=b.dataset.del,x=(S.SG||[]).find(y=>y.id===id);if(!x||!confirm("ఈ పాటను శాశ్వతంగా తొలగించాలా?\n\n🎵 "+x.t))return;b.disabled=true;try{await run("pastorDeleteSong",S.pin,id);S.SG=S.SG.filter(y=>y.id!==id);dr()}catch(er){alert(er.message);b.disabled=false}}}
 if($("#addm"))$("#addm").onclick=()=>memberForm(null);if($("#addmt"))$("#addmt").onclick=()=>meetingForm(null);
 if($("#mk"))$("#mk").onclick=async()=>{await run("markSeen",S.pin);rPastor(true)};
 if($("#out"))$("#out").onclick=()=>{S.pin="";S.D=null;S.v="home";S.step="choose";nav();render()};
