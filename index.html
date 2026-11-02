@@ -106,7 +106,7 @@ button.p{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647}button
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></head><body>
 <header><div id="logo"></div><h1 id="cn"></h1></header>
-<nav><button id="nH" class="p">🏠 Home / హోమ్</button><button id="nS">🎵 Songs / పాటలు</button><button id="nA">ℹ️ About / మన గురించి</button></nav>
+<nav><button id="nH" class="p">🏠 Home / హోమ్</button><button id="nA">ℹ️ About / మన గురించి</button></nav>
 <main id="app"></main><div id="modal"></div><div id="ld"><svg class="ang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle class="gl" cx="100" cy="76" r="62" fill="#f6e3a1" opacity=".3"/><text class="sp" x="30" y="40" font-size="16" fill="#f6e3a1">✦</text><text class="sp2" x="162" y="52" font-size="14" fill="#f6e3a1">✦</text><text class="sp2" x="150" y="150" font-size="12" fill="#f6e3a1">✦</text><text class="sp" x="36" y="140" font-size="12" fill="#f6e3a1">✦</text><g class="bob"><path class="wl" d="M88 102 C40 62 12 80 18 130 C40 110 60 120 90 126 Z" fill="#fff6cf" stroke="#e0b45a" stroke-width="2"/><path class="wr" d="M112 102 C160 62 188 80 182 130 C160 110 140 120 110 126 Z" fill="#fff6cf" stroke="#e0b45a" stroke-width="2"/><path d="M78 98 Q100 88 122 98 L138 172 Q100 184 62 172 Z" fill="#f3ecff" stroke="#e0b45a" stroke-width="2"/><circle cx="100" cy="68" r="16" fill="#ffe2c4"/><path d="M84 67 Q100 42 116 67 Q108 56 100 56 Q92 56 84 67Z" fill="#c99a3b"/><ellipse cx="100" cy="44" rx="17" ry="5" fill="none" stroke="#f6c94a" stroke-width="3"/><circle cx="94" cy="69" r="1.8" fill="#5a3a22"/><circle cx="106" cy="69" r="1.8" fill="#5a3a22"/><path d="M94 75 Q100 80 106 75" stroke="#8a5a3a" stroke-width="2" fill="none" stroke-linecap="round"/><g transform="translate(68 118)"><rect width="64" height="40" rx="4" fill="#5b2f94" stroke="#e0b45a" stroke-width="2"/><rect x="4" y="4" width="27" height="32" fill="#fff"/><rect x="33" y="4" width="27" height="32" fill="#fff"/><rect class="pg" x="33" y="4" width="27" height="32" fill="#f6e3a1"/><line x1="32" y1="4" x2="32" y2="36" stroke="#bbb"/><path d="M9 12h17M9 18h17M9 24h13M38 12h17M38 18h17" stroke="#c9b9e8" stroke-width="1.5"/></g><path d="M80 104 Q64 130 76 142" stroke="#ffe2c4" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M120 104 Q136 130 124 142" stroke="#ffe2c4" stroke-width="9" fill="none" stroke-linecap="round"/></g></svg><p><span id="ldm">ఒక్క నిమిషం</span><span class="dots"><span>.</span><span>.</span><span>.</span></span></p><div class="mu" id="ldv"></div></div>
 <script>
 /* ===== మీ వివరాలు ===== */
@@ -174,8 +174,27 @@ $("#cn").textContent=CFG.name;
 $("#logo").innerHTML=CFG.logo?`<img src="${esc(CFG.logo)}" alt="logo">`:`<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8862f"/><stop offset=".5" stop-color="#f6e3a1"/><stop offset="1" stop-color="#c99a3b"/></linearGradient><radialGradient id="bg" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#3d2780"/><stop offset="1" stop-color="#1a0f3d"/></radialGradient></defs><circle cx="100" cy="100" r="96" fill="url(#bg)" stroke="url(#gd)" stroke-width="5"/><circle cx="100" cy="100" r="88" fill="none" stroke="url(#gd)" stroke-width="1.6" opacity=".8"/><g stroke="#e0b45a" stroke-width="2.4" stroke-linecap="round" opacity=".6"><line x1="54.7" y1="96.0" x2="21.2" y2="90.1"/><line x1="56.8" y1="88.3" x2="34.2" y2="80.1"/><line x1="60.2" y1="81.0" x2="30.7" y2="64.0"/><line x1="64.8" y1="74.4" x2="46.4" y2="59.0"/><line x1="70.4" y1="68.8" x2="48.6" y2="42.7"/><line x1="77.0" y1="64.2" x2="65.0" y2="43.4"/><line x1="84.3" y1="60.8" x2="72.6" y2="28.8"/><line x1="92.0" y1="58.7" x2="87.8" y2="35.1"/><line x1="100.0" y1="58.0" x2="100.0" y2="24.0"/><line x1="108.0" y1="58.7" x2="112.2" y2="35.1"/><line x1="115.7" y1="60.8" x2="127.4" y2="28.8"/><line x1="123.0" y1="64.2" x2="135.0" y2="43.4"/><line x1="129.6" y1="68.8" x2="151.4" y2="42.7"/><line x1="135.2" y1="74.4" x2="153.6" y2="59.0"/><line x1="139.8" y1="81.0" x2="169.3" y2="64.0"/><line x1="143.2" y1="88.3" x2="165.8" y2="80.1"/><line x1="145.3" y1="96.0" x2="178.8" y2="90.1"/></g><g fill="url(#gd)"><path d="M70 60 L74 34 L88 47 L100 26 L112 47 L126 34 L130 60 Z"/><rect x="70" y="60" width="60" height="7" rx="2"/><circle cx="74" cy="32" r="3.6"/><circle cx="100" cy="23" r="4"/><circle cx="126" cy="32" r="3.6"/><rect x="92" y="74" width="16" height="84" rx="2"/><rect x="70" y="95" width="60" height="15" rx="2"/></g><g fill="none" stroke="url(#gd)" stroke-width="3" stroke-linecap="round"><path d="M44 128 Q60 172 100 176"/><path d="M156 128 Q140 172 100 176"/></g><g fill="url(#gd)"><ellipse cx="47" cy="138" rx="8" ry="3.4" transform="rotate(-62 47 138)"/><ellipse cx="55" cy="155" rx="8" ry="3.4" transform="rotate(-38 55 155)"/><ellipse cx="70" cy="167" rx="8" ry="3.4" transform="rotate(-18 70 167)"/><ellipse cx="87" cy="174" rx="8" ry="3.4" transform="rotate(-4 87 174)"/><ellipse cx="153" cy="138" rx="8" ry="3.4" transform="rotate(62 153 138)"/><ellipse cx="145" cy="155" rx="8" ry="3.4" transform="rotate(38 145 155)"/><ellipse cx="130" cy="167" rx="8" ry="3.4" transform="rotate(18 130 167)"/><ellipse cx="113" cy="174" rx="8" ry="3.4" transform="rotate(4 113 174)"/></g></svg>`;
 let S={step:"choose",mode:"",note:"",upin:"",addMode:false,phone:"",people:[],person:null,v:"home",pin:""},taps=0,tt;
 $("#logo").onclick=()=>{taps++;clearTimeout(tt);tt=setTimeout(()=>taps=0,2500);if(taps>=5){taps=0;S.v="pastor";nav();render()}};
-function nav(){$("#nS").style.display=(S.person||S.v==="songs")?"":"none";$("#nH").className=S.v==="home"?"p":"";$("#nA").className=S.v==="about"?"p":"";$("#nS").className=S.v==="songs"?"p":""}
-$("#nH").onclick=()=>{S.step=S.person?"menu":"choose";S.v="home";nav();render()};$("#nA").onclick=()=>{S.v="about";nav();render()};$("#nS").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};
+function nav(){$("#nH").className=S.v==="home"?"p":"";$("#nA").className=S.v==="about"?"p":""}
+$("#nH").onclick=()=>{S.step=S.person?"menu":"choose";S.v="home";nav();render()};$("#nA").onclick=()=>{S.v="about";nav();render()};
+/* ఫోన్ వెనుక బటన్ / స్వైప్: ప్రతి స్క్రీన్ మార్పు ఫోన్ history లో నమోదవుతుంది; Back నొక్కితే ఒక్కో స్క్రీన్ వెనక్కి; మొదటి స్క్రీన్‌లో యాప్ నుండి బయటకు */
+const LOGINST=["choose","phone","new","pick","done"];
+const hKey=()=>[S.v,S.step,S.v==="songs"&&S.sg?S.sg.st:"",S.v==="bible"&&S.bpAll?1:0,S.v==="daily"?S.dk:""].join("|");
+const hSnap=()=>({v:S.v,step:S.step,sg:S.sg?JSON.parse(JSON.stringify(S.sg)):null,bp:!!S.bpAll,dk:S.dk||""});
+function hSync(){try{const hs=history.state,k=hKey(),sn=hSnap();
+if(!hs||!hs.k){history.replaceState({k:k,p:null,sn:sn},"");return}
+if(hs.k===k)return;
+if(hs.p===k){history.back();return}
+const rep=hs.sn&&hs.sn.v==="home"&&S.v==="home"&&S.step!=="phone"&&S.step!=="back";
+if(rep)history.replaceState({k:k,p:hs.p,sn:sn},"");else history.pushState({k:k,p:hs.k,sn:sn},"")}catch(e){}}
+window.addEventListener("popstate",e=>{
+if($("#modal").innerHTML.trim()){$("#modal").innerHTML="";try{history.pushState({k:hKey(),p:e.state&&e.state.k||null,sn:hSnap()},"")}catch(x){}return}
+const st=e.state,sn=st&&st.sn;if(!sn||st.k===hKey())return;
+if(S.person&&sn.v==="home"&&LOGINST.includes(sn.step)){history.back();return}
+S.v=sn.v;S.step=sn.step;if(sn.sg)S.sg=sn.sg;S.bpAll=sn.bp;S.dk=sn.dk;
+if(!S.person&&(S.step==="menu"||S.step==="back"))S.step="choose";
+if(!S.person&&(S.v==="songs"||S.v==="bible"||S.v==="daily")){S.v="home";S.step="choose"}
+render()});
+
 const phoneA=`<a class="ph" href="tel:${CFG.phone}" target="_top">📞 ${CFG.phone}</a>`;
 const socials=()=>{const L=CFG.links,b=(u,t,c)=>u?`<a class="btn" style="background:${c};color:#fff" target="_blank" rel="noopener" href="${esc(u)}">${t}</a>`:"";const h=b(L.whatsapp,"💬 WhatsApp","#25d366")+b(L.youtube,"▶ YouTube","#e00")+b(L.instagram,"📷 Instagram","#c13584")+b(L.facebook,"👍 Facebook","#1877f2");return h?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${h}</div>`:""};
 const pastorBox=()=>`<div class="card"><h2 style="text-align:center">వివరాలు / Details</h2><div class="dgrid">${CFG.photo?`<img class="dph" src="${esc(CFG.photo)}" alt="">`:`<div class="dph" style="display:flex;align-items:center;justify-content:center;font-size:48px">🙏</div>`}<div class="dtx"><b>${esc(CFG.name)}</b><span>Pastor ${esc(CFG.pastor)}</span><small>📍 ${esc(CFG.addr)}</small>${phoneA}</div></div>${socials()}</div>`;
@@ -191,7 +210,7 @@ for(let f=13;f>=10;f-=.75){tx.style.setProperty("--f",f+"px");let size=110,h=0;
 for(let i=0;i<5;i++){ph.style.width=ph.style.height=size+"px";tx.style.height="auto";h=tx.getBoundingClientRect().height;const ns=Math.round(Math.max(96,Math.min(h,cap)));if(ns===size)break;size=ns}
 if(h<=cap+1||f<=10.3){ph.style.width=ph.style.height=size+"px";tx.style.height=size+"px";break}}})}
 window.addEventListener("resize",fitDetails);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitDetails);
-function render(){try{if(WLK){WLK.release();WLK=null}}catch(e){}nav();app.onclick=null;clearTimeout(S.dTm);({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs,bible:rBible,daily:rDaily})[S.v]();window.scrollTo(0,0);fitDetails();setTimeout(fitDetails,300)}
+function render(){try{if(WLK){WLK.release();WLK=null}}catch(e){}hSync();nav();app.onclick=null;clearTimeout(S.dTm);({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs,bible:rBible,daily:rDaily})[S.v]();window.scrollTo(0,0);fitDetails();setTimeout(fitDetails,300)}
 /* ===== పాటల పుస్తకం / Song Book ===== */
 let WLK=null;const SGK="pol_sg",SGF="pol_fs";
 const sgSaved=()=>{try{return JSON.parse(localStorage.getItem(SGK)||"null")}catch(e){return null}};
@@ -278,11 +297,11 @@ else if(st==="menu"){const p=S.person,bp=bpLoad(p.id),pg=bp?bpStat(bp):null;
 const tl=(id,ic,t1,t2,sub,i)=>`<button class="tile" id="${id}" style="animation-delay:${i*90}ms"><span class="ti">${ic}</span><b>${t1}</b><small>${t2}</small>${sub?`<em>${sub}</em>`:""}</button>`;
 app.innerHTML=`${p.bd?gcard(p,"bd"):""}${p.an?gcard(p,"an"):""}<div class="mhead"><button class="avb" id="av" aria-label="photo">${avHtml(p.id)}<i>✏️</i></button><div><div class="mu">స్వాగతం / Welcome</div><b>Our beloved ${esc(p.name)}</b></div></div>
 <div class="tiles">${tl("t1","🙏","Prayers &amp; Testimony","ప్రార్థన, సాక్ష్యం","",0)}${tl("t2","🎵","Song Book","పాటల పుస్తకం","",1)}${tl("t3","📖","Bible Reading Plan","బైబిల్ చదివే ప్లాన్",pg?pg.pct+"% ✓":"",2)}${tl("t4","🌅","Daily Devotion","ప్రతి రోజు ధ్యానం",dlNew("devotion")?"🆕 నేటిది":"",3)}${tl("t5","🤲","Daily Prayer","ప్రతి రోజు ప్రార్థన",dlNew("prayer")?"🆕 నేటిది":"",4)}${tl("t6","💬","Daily Testimony","ప్రతి రోజు సాక్ష్యం",dlNew("testimony")?"🆕 నేటిది":"",5)}</div>
-<div id="ntb"></div>${CFG.upi?`<div class="card">${upiBox()}</div>`:""}<button id="sw" style="width:100%;margin-bottom:12px">👥 వేరే పేరు ఎంచుకోండి / Change name</button>`+pastorBox();
+${CFG.upi?`<div class="card">${upiBox()}</div>`:""}<button id="sw" style="width:100%;margin-bottom:12px">👥 వేరే పేరు ఎంచుకోండి / Change name</button>`+pastorBox();
 bindUpi();drawGC();
 $("#t1").onclick=()=>{S.step="back";render()};$("#t2").onclick=()=>{S.v="songs";S.sg={st:"list",q:""};nav();render()};$("#t3").onclick=()=>{S.v="bible";S.bpAll=false;nav();render()};
 $("#sw").onclick=()=>{S.person=null;S.step="pick";nav();render()};
-["devotion","prayer","testimony"].forEach((k,j)=>$("#t"+(4+j)).onclick=()=>{S.v="daily";S.dk=k;nav();render()});$("#av").onclick=()=>avPick(p);ntInit();dlMenu()}
+["devotion","prayer","testimony"].forEach((k,j)=>$("#t"+(4+j)).onclick=()=>{S.v="daily";S.dk=k;nav();render()});$("#av").onclick=()=>avPick(p);ntAsk();dlMenu()}
 else if(st==="back"){const p=S.person;app.innerHTML=`<button id="mb" style="width:100%;margin-bottom:8px">← మెనూ / Menu</button>${myBox(p.id)}<div class="card"><h2>🙏 Our beloved ${esc(p.name)}</h2>
 ${p.needJob?`<label>Occupation / వృత్తి (మీరు ఏ పని చేస్తారు?)</label><input id="job">`:""}${p.needDob?`<label>Date of Birth / పుట్టిన తేదీ</label><input id="dob" type="date">`:""}${p.needAnniv?`<label>Marriage Date / వివాహ తేదీ (ఉంటే)</label><input id="an" type="date">`:""}${p.needEmail?`<label>Email / ఇమెయిల్</label><input id="em" type="email">`:""}${p.needArea?`<label>Village / ఊరు</label><input id="area"><p class="mu" style="margin:4px 0 0">📍 మీ ఊరు చెబితే పాస్టర్ గారు మిమ్మల్ని కలవడానికి, ఫోన్ చేయడానికి వీలవుతుంది.</p>`:""}
 <label>New Prayer Request / కొత్త ప్రార్థన అభ్యర్థన</label><textarea id="pr"></textarea>
@@ -334,12 +353,16 @@ app.innerHTML=`${back}<div class="card"><h2 style="text-align:center;margin-bott
 ${x?`<div class="center" style="margin-bottom:10px">${fresh?`<span class="fresh">🆕 ఈ రోజు కొత్త సందేశం · ${fd(td)}</span>`:`<span class="mu">📅 ${fd(x.d)} నాటి సందేశం</span>`}</div><div class="sl">${x.t?`<h3 class="sh">${esc(x.t)}</h3>`:""}<div class="sx">${esc(x.x)}</div></div><a class="btn wa" target="_blank" rel="noopener" style="display:block;margin-top:16px;padding:11px;font-size:15px" href="${esc("https://wa.me/?text="+encodeURIComponent(dlShare(k,x)))}">💬 WhatsApp లో షేర్ చేయండి / Share</a>`:`<p class="mu center">ఇంకా ఏమీ చేర్చలేదు. పాస్టర్ గారు త్వరలో చేరుస్తారు 🙏</p>`}</div>`;
 $("#db").onclick=goBack}
 /* ప్రతి రోజు నోటిఫికేషన్ (Android Chrome లో యాప్ ఇన్‌స్టాల్ చేసినవారికి; ఉచితం) */
-function ntInit(){const b=$("#ntb");if(!b||!("Notification" in window)||!("serviceWorker" in navigator)||!CFG.backend)return;
-const on=Notification.permission==="granted"&&localStorage.getItem("pol_nt")==="1";
-b.innerHTML=on?`<div class="mu center" style="margin-bottom:12px">🔔 రోజువారీ నోటిఫికేషన్ ఆన్ లో ఉంది ✓</div>`:`<button id="ntn" style="width:100%;margin-bottom:12px">🔔 ప్రతి రోజు సందేశం నోటిఫికేషన్ కావాలా?</button>`;
-if($("#ntn"))$("#ntn").onclick=async()=>{try{const pm=await Notification.requestPermission();if(pm!=="granted"){alert("అనుమతి ఇవ్వలేదు. ఫోన్ సెట్టింగ్స్ లో నోటిఫికేషన్ అనుమతించండి.");return}
-const reg=await navigator.serviceWorker.ready;if(!("periodicSync" in reg)){alert("ఈ ఫోన్ (లేదా బ్రౌజర్) ప్రతి రోజు నోటిఫికేషన్‌కు సపోర్ట్ చేయదు. యాప్ తెరిచి ఈ రోజు సందేశం చూడవచ్చు.");return}
-await reg.periodicSync.register("daily-msg",{minInterval:12*36e5});localStorage.setItem("pol_nt","1");reg.showNotification("✅ నోటిఫికేషన్ ఆన్ అయింది",{body:"ప్రతి రోజు సందేశం గుర్తు చేస్తాను 🙏",icon:"icon-192.png"});ntInit()}catch(e){alert("నోటిఫికేషన్ ఆన్ చేయడం కుదరలేదు")}}}
+function ntAsk(force){if(!("Notification" in window)||!("serviceWorker" in navigator)||!CFG.backend)return;
+if(!force&&!(window.navigator.standalone||matchMedia("(display-mode: standalone)").matches))return;   /* యాప్ ఇన్‌స్టాల్ అయినప్పుడు మాత్రమే అడుగుతాము */
+if(localStorage.getItem("pol_nta")||Notification.permission!=="default"||$("#modal").innerHTML)return;   /* ఒక్కసారి మాత్రమే అడుగుతాము */
+navigator.serviceWorker.ready.then(reg=>{if(!("periodicSync" in reg)||localStorage.getItem("pol_nta")||$("#modal").innerHTML)return;
+localStorage.setItem("pol_nta","1");
+$("#modal").innerHTML=`<div class="modal"><div><h2 style="text-align:center">🔔 ప్రతి రోజు సందేశం</h2><p class="mu center">ప్రతి రోజు దేవుని సందేశం నోటిఫికేషన్‌గా కావాలా?</p><button class="p" id="nty" style="width:100%">అవును, కావాలి 🙏</button><button id="ntx" style="width:100%;margin-top:8px">వద్దు</button></div></div>`;
+$("#ntx").onclick=()=>$("#modal").innerHTML="";
+$("#nty").onclick=async()=>{$("#modal").innerHTML="";try{const pm=await Notification.requestPermission();if(pm!=="granted")return;
+await reg.periodicSync.register("daily-msg",{minInterval:12*36e5});localStorage.setItem("pol_nt","1");reg.showNotification("✅ నోటిఫికేషన్ ఆన్ అయింది",{body:"ప్రతి రోజు సందేశం గుర్తు చేస్తాను 🙏",icon:"icon-192.png"})}catch(e){}}}).catch(()=>{})}
+window.addEventListener("appinstalled",()=>setTimeout(()=>ntAsk(true),1500));
 function dailyForm(k,x){const K=DKS[k],td=bpToday();
 $("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>${K[0]} ${K[1]}<br><span class="mu">${K[2]}</span></h2><label>📅 Date / తేదీ * (ఈ తేదీ రోజున విశ్వాసులకు కొత్త సందేశంగా కనిపిస్తుంది)</label><input id="d8" type="date" value="${x?esc(x.d):td}"><label>Title / శీర్షిక</label><input id="dt" maxlength="120" value="${esc(x&&x.t||"")}"><label>Message / సందేశం *</label><textarea id="dx" maxlength="5000" style="min-height:220px">${esc(x&&x.x||"")}</textarea><p class="err" id="de"></p><button class="p" id="ds" style="width:100%">Save / సేవ్ చేయండి</button>${x?'<button id="dd" style="width:100%;margin-top:8px">🗑 Delete / తొలగించండి</button>':""}<button id="dc" style="width:100%;margin-top:8px">Cancel / రద్దు</button></div></div>`;
 if(!x){let touched=false;$("#d8").oninput=()=>touched=true;
