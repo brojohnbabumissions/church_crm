@@ -499,7 +499,7 @@ $("#br").onclick=()=>{if(confirm("ప్లాన్ మార్చాలా? �
 /* ===== పరిశుద్ధ గ్రంథం (IRV తెలుగు) – చదవడం, వెతకడం; ఫైళ్లు bible/GEN.json … (GitHub లో) ===== */
 const BCD="GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SOL ISA JER LAM EZE DAN HOS JOE AMO OBA JON MIC NAH HAB ZEP HAG ZEC MAL MAT MAR LUK JOH ACT ROM 1CO 2CO GAL EPH PHI COL 1TH 2TH 1TI 2TI TIT PHM HEB JAM 1PE 2PE 1JO 2JO 3JO JUD REV".split(" "),BKC={},BKF="pol_bkf",BKL="pol_bk_last";
 const BCR='ఇండియన్ రివైజ్డ్ వెర్షన్ (IRV) తెలుగు – 2019<br>© <a href="https://bridgeconn.com/" target="_blank" rel="noopener">Bridge Connectivity Solutions</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a><br>పాఠంలో ఏ మార్పూ చేయలేదు, యాప్‌లో చూపడానికి ఫైల్ రూపం మాత్రమే మార్చాం.';
-async function bkLoad(i){const c=BCD[i];if(BKC[c])return BKC[c];const r=await fetch("bible/"+c+".json");if(!r.ok)throw new Error("బైబిల్ ఫైల్ రాలేదు");const j=await r.json();BKC[c]=j;return j}
+async function bkLoad(i){const c=BCD[i];if(BKC[c])return BKC[c];let r=await fetch("bible/bible/"+c+".json");if(!r.ok)r=await fetch("bible/"+c+".json");if(!r.ok)throw new Error("బైబిల్ ఫైల్ రాలేదు");const j=await r.json();BKC[c]=j;return j}
 const bkRef=(b,c,a)=>{a=[...a].sort((x,y)=>x-y);const r=[];let s=a[0],p=s;for(let i=1;i<=a.length;i++){if(a[i]===p+1){p=a[i];continue}r.push(s===p?s:s+"–"+p);s=a[i];p=s}return BK[b][0]+" "+c+":"+r.join(", ")};
 function bkOpen(b,c,hv){const B=S.bk;B.st="read";B.b=b;B.c=c;B.sel=[];B.hv=hv||0;render()}
 function rBook(){const p=S.person;if(!p){S.v="home";S.step="choose";return render()}
