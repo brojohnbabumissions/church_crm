@@ -410,21 +410,24 @@ if(CFG.backend&&"serviceWorker" in navigator&&location.protocol==="https:")try{n
 (function(){const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),sa=()=>window.navigator.standalone||matchMedia("(display-mode: standalone)").matches;
 let sn=0;try{sn=+localStorage.getItem("pol_ibx")||0}catch(e){}
 function ibHide(){const b=document.getElementById("ib");if(b)b.remove()}
-function ibShow(){if(sa()||Date.now()-sn<259200000||document.getElementById("ib"))return;
-document.body.insertAdjacentHTML("beforeend",'<div id="ib" style="position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:#2a1a55;border:1px solid var(--gold);border-radius:14px;padding:8px 10px;box-shadow:0 4px 18px rgba(0,0,0,.5)"><span style="flex:1;font-size:14px;color:#fff">📲 యాప్‌గా ఇన్‌స్టాల్ చేయండి</span><button id="ibi" class="p" style="padding:8px 14px;font-size:14px">Install</button><button id="ibx" style="padding:8px 10px;font-size:14px" aria-label="Close">✖</button></div>');
+function ibShow(){if(sa()||document.getElementById("ib"))return;
+document.body.insertAdjacentHTML("beforeend",'<div id="ib" style="position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:#2a1a55;border:1px solid var(--gold);border-radius:14px;padding:8px 10px;box-shadow:0 4px 18px rgba(0,0,0,.5)"><span style="flex:1;font-size:14px;color:#fff">📲 యాప్ ఇన్‌స్టాల్ చేయమంటారా?</span><button id="ibi" class="p" style="padding:9px 16px;font-size:15px">Install</button></div>');
 document.getElementById("ibi").onclick=()=>{ibHide();a2h()};
-document.getElementById("ibx").onclick=()=>{try{localStorage.setItem("pol_ibx",String(Date.now()))}catch(e){}ibHide()}}
+}
 window.addEventListener("beforeinstallprompt",()=>setTimeout(ibShow,800));
 window.addEventListener("appinstalled",ibHide);
-let au=0;document.addEventListener("click",e=>{if(au||sa()||Date.now()-sn<259200000||!dip||e.target.closest("#ib"))return;au=1;try{dip.prompt();dip=null;ibHide()}catch(x){}},true);
-if(ios&&!sa())setTimeout(ibShow,3000)})();
+if((ios||/Android/i.test(ua))&&!sa())setTimeout(ibShow,3000)})();
 /* "ఆమేన్" నొక్కగానే యాప్ ఇన్‌స్టాల్ (Android: ఫోన్ ప్రశ్న వస్తుంది; iPhone: దశలు చూపిస్తాం) */
 function amenGo(){const sa=window.navigator.standalone||matchMedia("(display-mode: standalone)").matches;let d=dip;S.step="menu";
 if(d&&!sa){dip=null;try{d.prompt()}catch(e){}render();return}
 render();const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(!sa&&ios)setTimeout(a2h,300)}
 function a2h(){if(dip){dip.prompt();dip=null;return}
 const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),iph=/iPhone|iPod/i.test(ua);
-const st=ios?`<div style="font-size:18px;line-height:2;text-align:center">1️⃣ <b>Share</b> ⬆️ నొక్కండి<br>2️⃣ <b>Add to Home Screen</b><br>3️⃣ <b>Add</b> ✅</div><p class="mu" style="text-align:center">(Safari లో తెరవాలి)</p>`:`<div style="font-size:18px;line-height:2;text-align:center">1️⃣ పైన <b>⋮</b> నొక్కండి<br>2️⃣ <b>Add to Home screen</b><br>3️⃣ <b>Add</b> ✅</div>`;
+const U=navigator.userAgent,inapp=/FBAN|FBAV|Instagram|Snapchat|Telegram|WhatsApp|Line\/|; wv\)/i.test(U),chr=/Chrome\//.test(U)&&!/SamsungBrowser|OPR|OPT|Edg|UCBrowser|MiuiBrowser|Vivo|HeyTap|Firefox/i.test(U);
+const mn=/SamsungBrowser/.test(U)?"పైన/కింద <b>☰</b> (మెనూ) నొక్కండి → <b>Add page to</b> → <b>Home screen</b>":/Firefox/.test(U)?"పైన <b>⋮</b> నొక్కండి → <b>Install</b>":/EdgA/.test(U)?"కింద <b>⋯</b> నొక్కండి → <b>Add to phone</b>":/OPR|OPT/.test(U)?"<b>⋮</b> నొక్కండి → <b>Home screen</b>":"<b>⋮</b> లేదా <b>☰</b> (మెనూ) నొక్కండి → <b>Add to Home screen</b> / <b>Install app</b> / <b>Desktop</b>";
+const cu=location.protocol==="https:"?"intent://"+location.host+location.pathname+location.search+"#Intent;scheme=https;package=com.android.chrome;end":"";
+const ch=(!chr&&cu)?`<a class="btn p" href="${cu}" style="display:block;text-align:center;margin-top:10px;padding:12px">🌐 Chrome లో తెరవండి (సులభం)</a>`:"";
+const st=ios?`<div style="font-size:18px;line-height:2;text-align:center">1️⃣ <b>Share</b> ⬆️ నొక్కండి<br>2️⃣ <b>Add to Home Screen</b><br>3️⃣ <b>Add</b> ✅</div><p class="mu" style="text-align:center">(Safari లో తెరవాలి)</p>`:(inapp?`<p style="text-align:center;font-size:16px;line-height:1.7">ఈ లింక్ ఇతర యాప్ లోపల తెరిచారు. ఇక్కడ ఇన్‌స్టాల్ కాదు.<br>కింది బటన్ నొక్కి <b>Chrome</b> లో తెరవండి 👇</p>`:`<p style="text-align:center;font-size:17px;line-height:1.9">${mn} ✅</p>`)+ch;
 $("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>📲 యాప్ ఇన్‌స్టాల్ / Install App</h2>${st}<button class="p" style="width:100%;margin-top:10px" id="cl4">OK / సరే</button></div></div>`;
 const rm=()=>{const w=$("#arw");if(w)w.remove()};rm();
 if(iph)document.body.insertAdjacentHTML("beforeend",'<div id="arw" style="position:fixed;left:0;right:0;bottom:4px;text-align:center;z-index:70;pointer-events:none"><div style="display:inline-block;background:var(--gold);color:#2a1647;font-weight:700;border-radius:12px;padding:7px 16px;animation:bob 1.2s ease-in-out infinite">⬇️ కింద Share ⬆️ గుర్తు నొక్కండి</div></div>');
@@ -801,9 +804,9 @@ $("#chips").innerHTML=`<select id="fw">${opt("all","📅 అన్నీ / All",
 +`<select id="ft">${opt("","రకం / Type",ty)}${opt("u:1","🆕 కొత్తవి",ty)}${opt("k:ప్రార్థన","🙏 ప్రార్థనలు",ty)}${opt("k:సాక్ష్యం","✝ సాక్ష్యాలు",ty)}${opt("s:follow","📞 ఫాలోఅప్",ty)}${opt("s:prayed","✅ ప్రార్థించాను",ty)}${opt("s:testimony","🎉 సాక్ష్యం వచ్చింది",ty)}</select>`
 +`<select id="fm">${opt("","ఇతర / More",mo)}${opt("m:call","📞 ఫోన్ చేయవచ్చు",mo)}${opt("m:nocall","🚫 ఫోన్ వద్దు",mo)}${opt("m:idle","😴 30+ రోజులుగా రాలేదు",mo)}${areas.map(a=>opt("a:"+a,"📍 "+a,mo)).join("")}</select>`};
 const feed=()=>{const q=$("#q").value.toLowerCase().trim();S.q=$("#q").value;
-const mem=people.filter(p=>{if(q&&!(p.Name+" "+p.Phone+" "+p.Occupation+" "+(p.Area||"")).toLowerCase().includes(q))return false;if(f.a&&p.Area!==f.a)return false;
-if((f.w!=="all"||f.u||f.k||f.s)&&!pr.some(x=>x.PID===p.ID&&(f.w==="all"||(f.w==="today"?dayDiff(x.Time)===0:dayDiff(x.Time)<=6))&&(!f.u||x.Seen!=="Y")&&(!f.k||x.Kind===f.k)&&(!f.s||x.Status===f.s)))return false;
-if(f.m==="call")return p.CallOK==="అవును";if(f.m==="nocall")return p.CallOK==="వద్దు";if(f.m==="idle")return lastAct[p.ID]&&dayDiff(lastAct[p.ID])>=30;return true}).sort((a,b)=>a.Name.localeCompare(b.Name));
+const F=q?{w:"all",u:"",k:"",s:"",a:"",m:""}:f;const mem=people.filter(p=>{if(q&&!(p.Name+" "+p.Phone+" "+p.Occupation+" "+(p.Area||"")).toLowerCase().includes(q))return false;if(F.a&&p.Area!==F.a)return false;
+if((F.w!=="all"||F.u||F.k||F.s)&&!pr.some(x=>x.PID===p.ID&&(F.w==="all"||(F.w==="today"?dayDiff(x.Time)===0:dayDiff(x.Time)<=6))&&(!F.u||x.Seen!=="Y")&&(!F.k||x.Kind===F.k)&&(!F.s||x.Status===F.s)))return false;
+if(F.m==="call")return p.CallOK==="అవును";if(F.m==="nocall")return p.CallOK==="వద్దు";if(F.m==="idle")return lastAct[p.ID]&&dayDiff(lastAct[p.ID])>=30;return true}).sort((a,b)=>a.Name.localeCompare(b.Name));
 $("#feed").innerHTML=mem.length?`<h3>👥 Members / సభ్యులు (${mem.length})</h3>`+grid(mem,p=>""):'<div class="mu">సభ్యులు లేరు</div>'};
 chips();feed();$("#q").oninput=feed;
 $("#chips").onchange=e=>{const id=e.target.id,v=e.target.value;if(id==="fw")f.w=v;else if(id==="ft"){f.u="";f.k="";f.s="";if(v){const k=v[0],x=v.slice(2);f[k]=x}}else if(id==="fm"){f.a="";f.m="";if(v){const k=v[0],x=v.slice(2);f[k]=x}}feed()}}}
