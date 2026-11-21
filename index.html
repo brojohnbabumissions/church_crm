@@ -105,9 +105,13 @@ button.p{background:linear-gradient(135deg,#a67c2e,#e3c36b);color:#2a1647}button
 .fresh{display:inline-block;background:var(--ac);color:#2a1647;border-radius:99px;padding:4px 14px;font-size:13.5px;font-weight:700;animation:pop .6s ease both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 .tiles .tile:last-child:nth-child(odd){grid-column:1/-1}.sgbox{max-height:350px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1px solid var(--bd);border-radius:10px;padding:0 8px}.sgbox .item{min-height:58px;box-sizing:border-box}
-.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:6px;max-height:270px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1px solid var(--bd);border-radius:10px;padding:6px}
+.mg{display:grid;grid-template-columns:1fr;gap:6px;max-height:340px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1.5px solid #6fb7e0;border-radius:10px;padding:6px}
 .mc{padding:6px 9px;border:1px solid var(--bd);border-radius:10px;cursor:pointer;min-width:0}
-.mc b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc{border-color:#7a62c4}
+.mc .mr{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
+.mc b{flex:0 1 auto;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mc .mo{flex:0 1 auto;font-size:12.5px;color:var(--ac);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;text-align:right}
+.fsel{display:flex;gap:6px;margin-top:8px}.fsel select{flex:1;min-width:0;padding:8px 6px;font-size:13px}
 .mc .mu{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dcard{background:linear-gradient(135deg,#0f2210,#0b1a0c);border:1px solid #2f6a33;border-radius:18px;padding:14px;margin:0 0 14px}
 .dcard h2{color:#9bd6ff;font-size:17px;margin:0 0 10px}
@@ -668,10 +672,10 @@ const wbtn=(href,t)=>`<a class="btn wa" target="_blank" rel="noopener" href="${h
 const prItem=x=>`<div class="item" data-id="${x.PID}"><b>${esc(x.Name)}</b> ${x.Seen==="Y"?"":'<span class="badge">కొత్త</span>'} <span class="pill">${esc(x.Kind)}</span>${x.Status?` <span class="pill">${ST[x.Status]||""}</span>`:""}${pn(x.PID).Occupation?` <span class="mu">· ${esc(pn(x.PID).Occupation)}</span>`:""}<div>${esc(x.Text)}</div><div class="mu">${fmt(x.Time)} · ${esc(x.Phone)}</div></div>`;
 const memItem=(p,extra="",btn="")=>`<div class="item" data-id="${p.ID}" style="display:flex;gap:8px;align-items:center"><div style="flex:1;min-width:0"><b>${esc(p.Name)}</b>${p.Note?" 📝":""}${p.Occupation?` <span class="mu">· ${esc(p.Occupation)}</span>`:""}${p.Area?` <span class="mu">· 📍${esc(p.Area)}</span>`:""}<div class="mu">${extra||"📞 "+esc(p.Phone)}</div></div>${btn}</div>`;
 const pcnt={};people.forEach(p=>{pcnt[p.Phone]=(pcnt[p.Phone]||0)+1});
-const mcard=(p,ex)=>`<div class="mc" data-id="${p.ID}"><b>${esc(p.Name)}${pcnt[p.Phone]>1?' <span class="mu">👥'+pcnt[p.Phone]+'</span>':""}</b><div class="mu">${esc(p.Phone)}${ex?" · "+esc(ex):""}</div></div>`;
+const mcard=(p,ex)=>`<div class="mc" data-id="${p.ID}"><div class="mr"><b>${esc(p.Name)}${pcnt[p.Phone]>1?' <span class="mu">👥'+pcnt[p.Phone]+'</span>':""}</b>${p.Occupation?`<span class="mo">${esc(p.Occupation)}</span>`:""}</div><div class="mu">${esc(p.Phone)}${ex?" · "+esc(ex):""}</div></div>`;
 const grid=(a,fn)=>'<div class="mg">'+a.map(p=>mcard(p,fn?fn(p):"")).join("")+'</div>';
 const peopleOf=a=>{const z={};return a.filter(x=>!z[x.PID]&&(z[x.PID]=1)).map(x=>pn(x.PID)).filter(p=>p.ID)};
-const sec=(t,sub,body)=>`<div class="card k${TABS.findIndex(z=>z[0]===T)+1}"><h2>${t}</h2><p class="mu" style="margin:-4px 0 8px">${sub}</p>${body}</div>`;
+const sec=(t,sub,body)=>`<div class="card k${TABS.findIndex(z=>z[0]===T)+1}"><h2>${t}</h2>${sub?`<p class="mu" style="margin:-4px 0 8px">${sub}</p>`:""}${body}</div>`;
 const none='<div class="mu">ఏమీ లేవు 👍</div>';
 const dateCard=(title,k)=>{const a=upc(k,S.dw===365?365:30);return`<div class="dcard${k==="Anniversary"?" an":""}"><h2>${title}</h2>`+(a.length?'<div class="dchips">'+a.map(x=>`<div class="dc" data-id="${x.p.ID}"><div class="dt"><span class="dn">${esc(x.p.Name)}</span>${x.p.Occupation?`<span class="do">${esc(x.p.Occupation)}</span>`:""}</div><span class="dd">${x.days===0?"Today":x.days+"d"}</span></div>`).join("")+'</div>':'<div class="dnone">No one</div>')+'</div>'};
 const T=S.pt||"ov",TABS=[["ov","📊 సారాంశం","Overview"],["todo","📌 చేయవలసినవి","To-Do"],["dates","🎂 తేదీలు","Dates"],["find","🔍 వెతకండి","Find"],["mt","📅 మీటింగ్స్","Meetings"],["nt","📣 నోటీసులు","Notices"],["sg","🎵 పాటలు","Songs"],["dl","📢 రోజువారీ","Daily"],["sm","📝 ప్రసంగాలు","Sermons"]];
@@ -693,7 +697,7 @@ h+=`<div class="row" style="margin-bottom:10px"><button class="chip${DW===30?" o
 +dateCard("💍 Upcoming Anniversaries","Anniversary")
 +sec("🆕 New Members / కొత్తగా చేరినవారు","గత 7 రోజుల్లో చేరినవారు. పేరు నొక్కి, 'స్వాగతం' బటన్‌తో పలకరించండి.",newMem.length?grid(newMem):none)}
 const areas=[...new Set(people.map(p=>p.Area).filter(Boolean))].slice(0,8);
-if(T==="find"){h+=sec("🔍 Find / వెతకండి","పేరు లేదా ఫోన్ నంబర్‌తో వెతకండి. జాబితా బాక్స్‌లో స్క్రోల్ చేయవచ్చు. పేరు నొక్కితే వారి పూర్తి వివరాలు కనిపిస్తాయి.",`<input id="q" placeholder="పేరు / ఫోన్ నంబర్" value="${esc(S.q||"")}"><div id="chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"></div><div id="feed" style="margin-top:8px"></div>`)}
+if(T==="find"){h+=sec("🔍 Find / వెతకండి","",`<input id="q" placeholder="పేరు / ఫోన్ నంబర్" value="${esc(S.q||"")}"><div id="chips" class="fsel"></div><div id="feed" style="margin-top:8px"></div>`)}
 if(T==="mt"){const M=S.M||{meetings:[],upcoming:[]},WD=["ఆదివారం","సోమవారం","మంగళవారం","బుధవారం","గురువారం","శుక్రవారం","శనివారం"],RP={weekly:"🔁 ప్రతి వారం",monthly:"🔁 ప్రతి నెల"};
 const dlab=d=>{const n=Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))-T0)/864e5);return(n===0?"<b style='color:var(--ac)'>ఈ రోజు</b>":n===1?"<b>రేపు</b>":"")+(n<2?" · ":"")+WD[new Date(d+"T00:00:00Z").getUTCDay()]+", "+fd(d)};
 const seen={},UP=(M.upcoming||[]).filter(x=>{seen[x.id]=(seen[x.id]||0)+1;return !x.repeat||seen[x.id]<=2});
@@ -725,15 +729,18 @@ if($("#prf"))$("#prf").onclick=()=>{S.M=null;rPastor(true)};
 if($("#out"))$("#out").onclick=()=>{S.pin="";S.D=null;S.v="home";S.step="choose";nav();render()};
 if(T==="find"){const f=S.f||(S.f={w:"all",u:"",k:"",s:"",a:"",m:""});
 const pc={};people.forEach(p=>{pc[p.Phone]=(pc[p.Phone]||0)+1});
-const CH=[["w","all","అన్నీ / All"],["w","today","ఈ రోజు / Today"],["w","week","ఈ వారం / 7 days"],["u","1","🆕 కొత్తవి"],["k","ప్రార్థన","🙏 ప్రార్థనలు"],["k","సాక్ష్యం","✝ సాక్ష్యాలు"],["s","follow","📞 ఫాలోఅప్"],["s","prayed","✅ ప్రార్థించాను"],["s","testimony","🎉 సాక్ష్యం వచ్చింది"],["m","call","📞 ఫోన్ చేయవచ్చు"],["m","nocall","🚫 ఫోన్ వద్దు"],["m","bm","🎂 ఈ నెల పుట్టినరోజు"],["m","am","💍 ఈ నెల వివాహ దినం"],["m","idle","😴 30+ రోజులుగా రాలేదు"],...areas.map(a=>["a",a,"📍 "+a])];
-const chips=()=>{$("#chips").innerHTML=CH.map(c=>`<button class="chip${f[c[0]]===c[1]?" on":""}" data-g="${c[0]}" data-v="${esc(c[1])}">${esc(c[2])}</button>`).join("")};
+const opt=(v,t,cur)=>`<option value="${esc(v)}"${v===cur?" selected":""}>${esc(t)}</option>`;
+const chips=()=>{const ty=f.u?"u:1":f.k?"k:"+f.k:f.s?"s:"+f.s:"",mo=f.a?"a:"+f.a:f.m?"m:"+f.m:"";
+$("#chips").innerHTML=`<select id="fw">${opt("all","📅 అన్నీ / All",f.w)}${opt("today","ఈ రోజు / Today",f.w)}${opt("week","ఈ వారం / 7 days",f.w)}</select>`
++`<select id="ft">${opt("","రకం / Type",ty)}${opt("u:1","🆕 కొత్తవి",ty)}${opt("k:ప్రార్థన","🙏 ప్రార్థనలు",ty)}${opt("k:సాక్ష్యం","✝ సాక్ష్యాలు",ty)}${opt("s:follow","📞 ఫాలోఅప్",ty)}${opt("s:prayed","✅ ప్రార్థించాను",ty)}${opt("s:testimony","🎉 సాక్ష్యం వచ్చింది",ty)}</select>`
++`<select id="fm">${opt("","ఇతర / More",mo)}${opt("m:call","📞 ఫోన్ చేయవచ్చు",mo)}${opt("m:nocall","🚫 ఫోన్ వద్దు",mo)}${opt("m:idle","😴 30+ రోజులుగా రాలేదు",mo)}${areas.map(a=>opt("a:"+a,"📍 "+a,mo)).join("")}</select>`};
 const feed=()=>{const q=$("#q").value.toLowerCase().trim();S.q=$("#q").value;
 const mem=people.filter(p=>{if(q&&!(p.Name+" "+p.Phone+" "+p.Occupation+" "+(p.Area||"")).toLowerCase().includes(q))return false;if(f.a&&p.Area!==f.a)return false;
 if((f.w!=="all"||f.u||f.k||f.s)&&!pr.some(x=>x.PID===p.ID&&(f.w==="all"||(f.w==="today"?dayDiff(x.Time)===0:dayDiff(x.Time)<=6))&&(!f.u||x.Seen!=="Y")&&(!f.k||x.Kind===f.k)&&(!f.s||x.Status===f.s)))return false;
-if(f.m==="call")return p.CallOK==="అవును";if(f.m==="nocall")return p.CallOK==="వద్దు";if(f.m==="bm")return p.DOB&&+p.DOB.slice(5,7)===tm;if(f.m==="am")return p.Anniversary&&+p.Anniversary.slice(5,7)===tm;if(f.m==="idle")return lastAct[p.ID]&&dayDiff(lastAct[p.ID])>=30;return true}).sort((a,b)=>a.Name.localeCompare(b.Name));
-$("#feed").innerHTML=mem.length?`<h3>👥 Members / సభ్యులు (${mem.length})</h3>`+grid(mem,p=>f.m==="bm"?"🎂 "+fd(p.DOB):f.m==="am"?"💍 "+fd(p.Anniversary):""):'<div class="mu">సభ్యులు లేరు</div>'};
+if(f.m==="call")return p.CallOK==="అవును";if(f.m==="nocall")return p.CallOK==="వద్దు";if(f.m==="idle")return lastAct[p.ID]&&dayDiff(lastAct[p.ID])>=30;return true}).sort((a,b)=>a.Name.localeCompare(b.Name));
+$("#feed").innerHTML=mem.length?`<h3>👥 Members / సభ్యులు (${mem.length})</h3>`+grid(mem,p=>""):'<div class="mu">సభ్యులు లేరు</div>'};
 chips();feed();$("#q").oninput=feed;
-$("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const g=b.dataset.g,v=b.dataset.v;f[g]=g==="w"?v:(f[g]===v?"":v);chips();feed()}}}
+$("#chips").onchange=e=>{const id=e.target.id,v=e.target.value;if(id==="fw")f.w=v;else if(id==="ft"){f.u="";f.k="";f.s="";if(v){const k=v[0],x=v.slice(2);f[k]=x}}else if(id==="fm"){f.a="";f.m="";if(v){const k=v[0],x=v.slice(2);f[k]=x}}feed()}}}
 function pinResult(name,phone,pin,title){const t=`${name} గారూ, ${CFG.name} యాప్‌లో లాగిన్ అవ్వడానికి ఫోన్ నంబర్: ${phone}, మీ PIN: ${pin}.${CFG.appUrl?" లింక్: "+CFG.appUrl:""} – పాస్టర్ ${CFG.pastor}`;
 $("#modal").innerHTML=`<div class="modal" id="mm"><div class="center"><h2>${esc(title)}</h2><p>${esc(name)}</p><div style="font-size:38px;letter-spacing:10px;color:var(--gold);font-weight:700">${esc(pin)}</div><p class="mu">ఈ PIN వారికి చెప్పండి. సభ్యుని వివరాల్లో ఎప్పుడైనా మళ్లీ చూడవచ్చు.</p><a class="btn wa" target="_blank" rel="noopener" href="${wl(phone,t)}">💬 WhatsApp లో పంపండి</a><button class="p" style="width:100%;margin-top:12px" id="cl3">Close / మూసివేయండి</button></div></div>`;
 $("#cl3").onclick=()=>{$("#modal").innerHTML="";rPastor(true)}}
