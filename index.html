@@ -406,16 +406,26 @@ try{await run("saveEntry",{phone:S.phone,pin:S.upin,pid:p.id,job:g("#job"),dob:g
 else if(st==="done"){const v=VERSES[Math.floor(Math.random()*VERSES.length)],P=!!S.person;app.innerHTML=`<div class="card"><h2 style="text-align:center">🙏 Thank You / ధన్యవాదాలు 🙏</h2><p>మీ అభ్యర్థన పాస్టర్ గారికి చేరింది.</p><div class="verse">“${esc(v[1])}”<div class="mu" style="margin-top:6px">— ${esc(v[0])}</div></div>${P?`<div class="card" style="background:var(--ac2);margin:12px 0 0"><b style="color:var(--gold)">ఈ యాప్‌లో మీకు:</b><div style="line-height:1.9;margin-top:4px">📖 పరిశుద్ధ గ్రంథం · 🙌 1000 స్తుతులు<br>🎵 పాటల పుస్తకం · 🌅 ప్రతి రోజు ధ్యానం, ప్రార్థన, సాక్ష్యం<br>📖 బైబిల్ చదివే ప్లాన్ · 🙏 మీ ప్రార్థనల స్థితి</div></div><button class="p" id="go2" style="width:100%;margin-top:12px">📖 యాప్ లోకి వెళ్ళండి / Open the App ✦</button>`:""}<div style="text-align:center;margin-top:12px">${shareBtn()}</div>${P?"":`<button class="p" id="again" style="width:100%;margin-top:12px">Start Again / మళ్లీ మొదటికి</button>`}</div>`+pastorBox();if(P)$("#go2").onclick=()=>{S.v="home";S.step="menu";nav();render()};else $("#again").onclick=()=>{S.step="choose";S.upin="";render()}}}
 let dip=null;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e});
 if(CFG.backend&&"serviceWorker" in navigator&&location.protocol==="https:")try{navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}
+/* ఇన్‌స్టాల్ బార్: లింక్ తెరవగానే కింద చిన్న బార్ (Android: ఒక్క టాప్‌తో ఇన్‌స్టాల్; iPhone: దశలు చూపిస్తుంది) */
+(function(){const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),sa=()=>window.navigator.standalone||matchMedia("(display-mode: standalone)").matches;
+let sn=0;try{sn=+localStorage.getItem("pol_ibx")||0}catch(e){}
+function ibHide(){const b=document.getElementById("ib");if(b)b.remove()}
+function ibShow(){if(sa()||Date.now()-sn<259200000||document.getElementById("ib"))return;
+document.body.insertAdjacentHTML("beforeend",'<div id="ib" style="position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;background:#2a1a55;border:1px solid var(--gold);border-radius:14px;padding:8px 10px;box-shadow:0 4px 18px rgba(0,0,0,.5)"><span style="flex:1;font-size:14px;color:#fff">📲 యాప్‌గా ఇన్‌స్టాల్ చేయండి</span><button id="ibi" class="p" style="padding:8px 14px;font-size:14px">Install</button><button id="ibx" style="padding:8px 10px;font-size:14px" aria-label="Close">✖</button></div>');
+document.getElementById("ibi").onclick=()=>{ibHide();a2h()};
+document.getElementById("ibx").onclick=()=>{try{localStorage.setItem("pol_ibx",String(Date.now()))}catch(e){}ibHide()}}
+window.addEventListener("beforeinstallprompt",()=>setTimeout(ibShow,800));
+window.addEventListener("appinstalled",ibHide);
+let au=0;document.addEventListener("click",e=>{if(au||sa()||Date.now()-sn<259200000||!dip||e.target.closest("#ib"))return;au=1;try{dip.prompt();dip=null;ibHide()}catch(x){}},true);
+if(ios&&!sa())setTimeout(ibShow,3000)})();
 /* "ఆమేన్" నొక్కగానే యాప్ ఇన్‌స్టాల్ (Android: ఫోన్ ప్రశ్న వస్తుంది; iPhone: దశలు చూపిస్తాం) */
 function amenGo(){const sa=window.navigator.standalone||matchMedia("(display-mode: standalone)").matches;let d=dip;S.step="menu";
 if(d&&!sa){dip=null;try{d.prompt()}catch(e){}render();return}
 render();const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(!sa&&ios)setTimeout(a2h,300)}
 function a2h(){if(dip){dip.prompt();dip=null;return}
 const ua=navigator.userAgent,ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),iph=/iPhone|iPod/i.test(ua);
-const box=(t,l)=>`<div style="background:var(--ac2);border-radius:12px;padding:12px;margin-bottom:8px"><b style="color:var(--gold)">${t}</b><ol style="margin:6px 0 0;padding-left:20px;line-height:1.9">${l}</ol></div>`;
-const ip=box("🍎 iPhone / iPad (Safari)",`<li>ఈ యాప్ <b>Safari</b> లో తెరిచి ఉండాలి (WhatsApp, Instagram లోపల కాదు). అలా కాకపోతే లింక్ కాపీ చేసి Safari లో తెరవండి.</li><li>${iph?"స్క్రీన్ <b>కింద మధ్యలో</b>":"స్క్రీన్ <b>పైన కుడివైపు</b>"} ఉన్న <b>Share</b> గుర్తు (పైకి బాణం ఉన్న చతురస్రం ⬆️) నొక్కండి.</li><li>వచ్చిన జాబితాను కిందికి జరిపి <b>Add to Home Screen</b> ("హోమ్ స్క్రీన్‌కు జోడించు") నొక్కండి.</li><li>పై కుడివైపు <b>Add</b> నొక్కండి ✅</li>`);
-const ad=box("🤖 Android (Chrome)",`<li>పైన కుడివైపు <b>⋮</b> (మూడు చుక్కలు) నొక్కండి</li><li><b>Add to Home screen</b> / "హోమ్ స్క్రీన్‌కు జోడించు" ఎంచుకోండి</li><li><b>Add</b> నొక్కండి</li>`);
-$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>📲 యాప్ ఇన్‌స్టాల్ చేయండి / Install App</h2><p class="mu">అప్పుడు మిగతా యాప్‌ల లాగే ఐకాన్ నొక్కి నేరుగా తెరవవచ్చు.</p>${ios?ip+'<p class="mu">⚠️ iPhone లో యాప్ దానంతట అదే చేరదు (ఆపిల్ అనుమతించదు). పై దశలు మీరే చేయాలి, 30 సెకన్లు చాలు.</p>':ad}<button class="p" style="width:100%;margin-top:6px" id="cl4">${ios?"అర్థమైంది – Share నొక్కుతాను":"OK / సరే"}</button></div></div>`;
+const st=ios?`<div style="font-size:18px;line-height:2;text-align:center">1️⃣ <b>Share</b> ⬆️ నొక్కండి<br>2️⃣ <b>Add to Home Screen</b><br>3️⃣ <b>Add</b> ✅</div><p class="mu" style="text-align:center">(Safari లో తెరవాలి)</p>`:`<div style="font-size:18px;line-height:2;text-align:center">1️⃣ పైన <b>⋮</b> నొక్కండి<br>2️⃣ <b>Add to Home screen</b><br>3️⃣ <b>Add</b> ✅</div>`;
+$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>📲 యాప్ ఇన్‌స్టాల్ / Install App</h2>${st}<button class="p" style="width:100%;margin-top:10px" id="cl4">OK / సరే</button></div></div>`;
 const rm=()=>{const w=$("#arw");if(w)w.remove()};rm();
 if(iph)document.body.insertAdjacentHTML("beforeend",'<div id="arw" style="position:fixed;left:0;right:0;bottom:4px;text-align:center;z-index:70;pointer-events:none"><div style="display:inline-block;background:var(--gold);color:#2a1647;font-weight:700;border-radius:12px;padding:7px 16px;animation:bob 1.2s ease-in-out infinite">⬇️ కింద Share ⬆️ గుర్తు నొక్కండి</div></div>');
 const cl=()=>{$("#modal").innerHTML="";if(iph)setTimeout(rm,12000);else rm()};
