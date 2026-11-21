@@ -286,7 +286,7 @@ const wl=(ph,t)=>`https://wa.me/91${ph}?text=${encodeURIComponent(t)}`;
 const NMX=/[^\p{L}\p{M}\u200c\u200d ]/gu;
 const alphaOnly=id=>{const e=$(id);if(!e)return;e.setAttribute("autocapitalize","words");const f=()=>{const v=e.value,n=v.replace(NMX,"").replace(/ {2,}/g," ");if(n!==v){let p=e.selectionStart;p=(p==null?n.length:Math.max(0,p-(v.length-n.length)));e.value=n;try{e.setSelectionRange(p,p)}catch(x){}}};e.addEventListener("input",ev=>{if(!ev.isComposing)f()});e.addEventListener("compositionend",f)};
 const busy=(b,on)=>{b.disabled=on;b.textContent=on?"దయచేసి వేచి ఉండండి…":b.dataset.t}
-function logout(){S.ro=0;S.pin="";S.D=null;S.M=null;$("#modal").innerHTML="";if(S.v==="pastor"){S.v="home";S.step="choose";nav();render()}}
+function logout(){S.ro=0;try{smMemClear()}catch(e){}S.pin="";S.D=null;S.M=null;$("#modal").innerHTML="";if(S.v==="pastor"){S.v="home";S.step="choose";nav();render()}}
 function bump(){clearTimeout(S.idle);if(S.pin)S.idle=setTimeout(logout,600000)}
 document.addEventListener("click",()=>{if(S.pin)bump()});
 function fitDetails(){}
@@ -294,7 +294,7 @@ window.addEventListener("resize",fitDetails);if(document.fonts&&document.fonts.r
 function mhRender(){const h=$("#mh");if(!h)return;const p=S.person,ok=p&&((S.v==="home"&&["menu","back","done"].includes(S.step))||["songs","bible","daily","praise","bk"].includes(S.v));if(!ok){h.innerHTML="";return}h.innerHTML=`<div class="mhead${S.v==="home"&&S.step==="menu"?"":" sm"}"><button class="avb" id="av" aria-label="photo">${avHtml(p.id)}<i>✏️</i></button><div><div class="mu">స్వాగతం / Welcome</div><b>Our beloved ${esc(p.name)}</b></div></div>`;$("#av").onclick=()=>avPick(p)}
 function fitSg(){const e=$("#sl");if(!e||!e.classList.contains("sgfill"))return;e.style.height=Math.max(160,innerHeight-(e.getBoundingClientRect().top+window.scrollY)-34)+"px"}
 window.addEventListener("resize",fitSg);
-function render(){if(S.v!=="pastor")S.ro=0;try{if(WLK){WLK.release();WLK=null}}catch(e){}hSync();nav();app.onclick=null;clearTimeout(S.dTm);({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs,bible:rBible,daily:rDaily,praise:rPraise,bk:rBook})[S.v]();document.documentElement.style.overscrollBehaviorY=S.v==="pastor"?"contain":"";mhRender();window.scrollTo(0,0);fitSg();setTimeout(fitSg,600);fitDetails();setTimeout(fitDetails,300)}
+function render(){if(S.v!=="pastor"){S.ro=0;try{smMemClear()}catch(e){}}try{if(WLK){WLK.release();WLK=null}}catch(e){}hSync();nav();app.onclick=null;clearTimeout(S.dTm);({home:rHome,about:rAbout,pastor:rPastor,songs:rSongs,bible:rBible,daily:rDaily,praise:rPraise,bk:rBook})[S.v]();document.documentElement.style.overscrollBehaviorY=S.v==="pastor"?"contain":"";mhRender();window.scrollTo(0,0);fitSg();setTimeout(fitSg,600);fitDetails();setTimeout(fitDetails,300)}
 /* ===== పాటల పుస్తకం / Song Book ===== */
 let WLK=null;const SGK="pol_sg",SGF="pol_fs";
 const MEK="pol_me",meSave=()=>{try{if(S.person&&S.phone&&S.upin){localStorage.setItem(MEK,JSON.stringify({p:S.phone,n:S.upin,i:S.person.id}));localStorage.setItem("pol_mc",JSON.stringify({i:S.person.id,pp:S.people||[],my:S.my||[]}))}}catch(e){}},meForget=()=>{try{localStorage.removeItem(MEK);localStorage.removeItem("pol_mc")}catch(e){}};
@@ -487,12 +487,12 @@ dr();$("#smq").oninput=dr;
 $("#sml").onclick=e=>{const b=e.target.closest("[data-sst]");if(!b)return;const r=smGet(b.dataset.sst);if(r)smStage(r,()=>{$("#modal").innerHTML="";rSmRO()})};
 $("#owp").onclick=smWipe;$("#oex").onclick=()=>{S.ro=0;S.v="home";S.step="choose";nav();render()}}
 function olBox(){const el=$("#olb");if(!el)return;const o=olGet();
-el.innerHTML=o?`<div class="mu">✅ ఈ ఫోన్ లో ఆఫ్‌లైన్ లాగిన్ సెట్ అయింది (User ID: ${esc(o.u)}). అది ప్రసంగాలు చదవడానికి మాత్రమే.</div><div style="display:flex;gap:8px;margin-top:6px"><button id="olc" style="flex:1">✏️ మార్చండి</button><button id="old" style="flex:1">🗑 తొలగించండి</button></div>`:`<button id="olc" style="width:100%">🔑 ఆఫ్‌లైన్ లాగిన్ సెట్ చేయండి</button><div class="mu" style="margin-top:6px">ఇంటర్నెట్ లేనప్పుడు ప్రసంగాలు చదవడానికి (రాయడానికి కాదు).</div>`;
+el.innerHTML=o?`<div class="mu">✅ ఈ ఫోన్ లో ఆఫ్‌లైన్ లాగిన్ సెట్ అయింది (User ID: ${esc(o.u)}). అది ప్రసంగాలు చదవడానికి మాత్రమే.</div><div style="display:flex;gap:8px;margin-top:6px"><button id="olc" style="flex:1">✏️ మార్చండి</button><button id="old" style="flex:1">🗑 తొలగించండి</button></div>`:`<button id="olc" style="width:100%">🔑 ఆఫ్‌లైన్ లాగిన్ సెట్ చేయండి</button><div class="mu" style="margin-top:6px">ఇంటర్నెట్ లేనప్పుడు ప్రసంగాలు చదవడానికి (రాయడానికి కాదు). సెట్ చేసిన ఫోన్ లో మాత్రమే ప్రసంగాలు ఫోన్ లో సేవ్ అవుతాయి; సెట్ చేయని ఫోన్ లో పేజీ నుండి బయటకు రాగానే అవి మాయమవుతాయి.</div>`;
 el.insertAdjacentHTML("beforeend",'<button id="owp" style="width:100%;margin-top:12px">🧹 ఈ ఫోన్ నుండి నా ప్రసంగాలు తొలగించండి</button>');$("#owp").onclick=smWipe;$("#olc").onclick=olForm;if($("#old"))$("#old").onclick=()=>{if(!confirm("ఈ ఫోన్ లోని ఆఫ్‌లైన్ లాగిన్ తొలగించాలా?"))return;try{localStorage.removeItem(OLK)}catch(e){}olBox()}}
 function olForm(){$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>🔑 ఆఫ్‌లైన్ లాగిన్ / Offline Login</h2><p class="mu">ఈ ఫోన్ లో మాత్రమే పనిచేస్తుంది. ప్రసంగాలు చదవడానికి మాత్రమే.</p><label>User ID *</label><input id="ou" maxlength="30" autocomplete="off" autocapitalize="none"><label>PIN * (కనీసం 4)</label><input id="op" type="password" maxlength="20" autocomplete="off"><label>PIN మళ్ళీ *</label><input id="op2" type="password" maxlength="20" autocomplete="off"><p class="err" id="oe"></p><button class="p" id="os" style="width:100%">Save / సేవ్ చేయండి</button><button id="ox" style="width:100%;margin-top:8px">Cancel / రద్దు</button></div></div>`;
 $("#ox").onclick=()=>$("#modal").innerHTML="";
 $("#os").onclick=async()=>{const u=$("#ou").value.trim(),p=$("#op").value;if(!u){$("#oe").textContent="User ID ఇవ్వండి";return}if(p.length<4){$("#oe").textContent="PIN కనీసం 4 అక్షరాలు ఉండాలి";return}if(p!==$("#op2").value){$("#oe").textContent="రెండు PIN లు ఒకేలా లేవు";return}
-const h=await olHash(u,p);try{localStorage.setItem(OLK,JSON.stringify({u:u,h:h}))}catch(e){$("#oe").textContent="ఈ ఫోన్/బ్రౌజర్ లో సేవ్ చేయడం కుదరలేదు. Chrome లో తెరవండి.";return}
+const h=await olHash(u,p);try{Object.keys(SMM).forEach(k=>localStorage.setItem(k,SMM[k]));SMM={};localStorage.setItem(OLK,JSON.stringify({u:u,h:h}))}catch(e){$("#oe").textContent="ఈ ఫోన్/బ్రౌజర్ లో సేవ్ చేయడం కుదరలేదు. Chrome లో తెరవండి.";return}
 $("#modal").innerHTML="";olBox()}}
 
 async function smWipe(){let dirty=smAll().filter(x=>x.dirty);
@@ -500,9 +500,14 @@ if(S.pin&&dirty.length){for(const l of dirty)await smPush(l);dirty=smAll().filte
 const msg=dirty.length?"⚠️ "+dirty.length+" ప్రసంగాల కొత్త రాతలు ఇంకా సర్వర్ కు వెళ్ళలేదు. ఇప్పుడు తొలగిస్తే అవి శాశ్వతంగా పోతాయి.\n\nఅయినా ఈ ఫోన్ నుండి తొలగించాలా?":"ఈ ఫోన్ నుండి మీ ప్రసంగాలు, ఆఫ్‌లైన్ లాగిన్ తొలగించాలా?\n\nసర్వర్ లో ఉన్నవి సురక్షితంగా ఉంటాయి. మళ్ళీ పూర్తి లాగిన్ తో తెచ్చుకోవచ్చు.";
 if(!confirm(msg))return;
 try{const ks=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&(k.indexOf("pol_sm")===0||k===OLK))ks.push(k)}ks.forEach(k=>localStorage.removeItem(k))}catch(e){}
-S.SM=[];S.tm=null;S.ro=0;S.pin="";S.D=null;$("#modal").innerHTML="";S.v="home";S.step="choose";nav();render();setTimeout(()=>alert("✅ ఈ ఫోన్ నుండి ప్రసంగాలు తొలగించబడ్డాయి"),100)}
+SMM={};S.SM=[];S.tm=null;S.ro=0;S.pin="";S.D=null;$("#modal").innerHTML="";S.v="home";S.step="choose";nav();render();setTimeout(()=>alert("✅ ఈ ఫోన్ నుండి ప్రసంగాలు తొలగించబడ్డాయి"),100)}
 /* ===== ప్రసంగ నోట్స్ (పాస్టర్ గారి కోసం): ఫోన్‌లో భద్రం + Sermons షీట్ లో బ్యాకప్ ===== */
 const SMK="pol_sm_",SMI="pol_sm_ix";
+/* ప్రసంగాలు ఫోన్ లో సేవ్ అయ్యేది: ఆఫ్‌లైన్ లాగిన్ సెట్ చేసిన (పాస్టర్ గారి సొంత) ఫోన్ లో మాత్రమే. ఇతర ఫోన్ లలో మెమరీలోనే ఉండి, పాస్టర్ పేజీ నుండి బయటకు రాగానే పోతాయి. */
+let SMM={};
+const smMine=()=>{try{return !!olGet()||JSON.parse(localStorage.getItem(SMI)||"[]").length>0}catch(e){return false}};
+const SMS={getItem:k=>smMine()?localStorage.getItem(k):(k in SMM?SMM[k]:null),setItem:(k,v)=>{if(smMine())localStorage.setItem(k,v);else SMM[k]=String(v)},removeItem:k=>{if(smMine())localStorage.removeItem(k);else delete SMM[k]}};
+const smMemClear=()=>{try{if(!smMine())SMM={}}catch(e){}};
 const SMT={B:1,STRONG:1,I:1,EM:1,U:1,S:1,STRIKE:1,DIV:1,P:1,BR:1,SPAN:1,FONT:1,H1:1,H2:1,H3:1,UL:1,OL:1,LI:1,HR:1,BLOCKQUOTE:1,SUB:1,SUP:1};
 const SMSZ={"xx-small":.6,"x-small":.7,small:.85,medium:1,large:1.2,"x-large":1.5,"xx-large":2,"xxx-large":2.6},SMFS=[0,.7,.85,1,1.2,1.5,2,2.6];
 function smStyle(s){const o=[];String(s||"").split(";").forEach(p=>{const i=p.indexOf(":");if(i<0)return;const k=p.slice(0,i).trim().toLowerCase(),v=p.slice(i+1).trim();if(!v||!/^[#\w(),.\s%-]+$/.test(v))return;
@@ -520,9 +525,9 @@ if(al&&/^(left|center|right|justify)$/.test(al))st+=";text-align:"+al;
 if(st)c.setAttribute("style",st.replace(/^;/,""));go(c)})};
 go(root);return root.innerHTML}
 const smTx=h=>new DOMParser().parseFromString("<body>"+String(h||"")+"</body>","text/html").body.textContent||"";
-const smIx=()=>{try{return JSON.parse(localStorage.getItem(SMI)||"[]")}catch(e){return[]}},smGet=id=>{try{return JSON.parse(localStorage.getItem(SMK+id)||"null")}catch(e){return null}};
-function smPut(r){try{r.b=smClean(r.b);localStorage.setItem(SMK+r.id,JSON.stringify(r));const ix=smIx();if(!ix.includes(r.id)){ix.push(r.id);localStorage.setItem(SMI,JSON.stringify(ix))}return true}catch(e){return false}}
-function smDel(id){try{localStorage.removeItem(SMK+id);localStorage.setItem(SMI,JSON.stringify(smIx().filter(x=>x!==id)))}catch(e){}}
+const smIx=()=>{try{return JSON.parse(SMS.getItem(SMI)||"[]")}catch(e){return[]}},smGet=id=>{try{return JSON.parse(SMS.getItem(SMK+id)||"null")}catch(e){return null}};
+function smPut(r){try{r.b=smClean(r.b);SMS.setItem(SMK+r.id,JSON.stringify(r));const ix=smIx();if(!ix.includes(r.id)){ix.push(r.id);SMS.setItem(SMI,JSON.stringify(ix))}return true}catch(e){return false}}
+function smDel(id){try{SMS.removeItem(SMK+id);SMS.setItem(SMI,JSON.stringify(smIx().filter(x=>x!==id)))}catch(e){}}
 const smAll=()=>smIx().map(smGet).filter(Boolean).sort((a,b)=>b.u-a.u);
 async function smPush(r){const u=r.u;try{await run0("pastorSaveSermon",S.pin,{id:r.id,title:r.t,date:r.d,verse:r.v,body:smClean(r.b),u:u});if(r.u===u){r.dirty=0;smPut(r)}return""}catch(e){return e.message||"error"}}
 async function smLoad(){S.SM=smAll();try{const a=await run0("pastorSermons",S.pin);if(!Array.isArray(a))throw 0;const sv={};a.forEach(x=>sv[x.id]=x);
@@ -763,7 +768,7 @@ if(d||q){const a=S._AL.filter(m=>tx(m.Title,m.Place,m.Note)&&(!d||S._occ(m,d)));
 else{const a=S._UP.filter(x=>tx(x.title,x.place,x.note));$("#mlc").textContent="రాబోయే మీటింగ్స్: "+a.length+" (బాక్స్ లో స్క్రోల్ చేయండి)";$("#mll").innerHTML=a.map(S._mi).join("")||'<div class="mu">రాబోయే మీటింగ్స్ లేవు 👍</div>'}};$("#mq").oninput=dr;$("#mdq").onchange=dr;$("#mdc").onclick=()=>{$("#mdq").value="";dr()};dr()}
 if($("#mk"))$("#mk").onclick=async()=>{await run("markSeen",S.pin);rPastor(true)};
 if($("#prf"))$("#prf").onclick=()=>{S.M=null;rPastor(true)};
-if($("#out"))$("#out").onclick=()=>{S.ro=0;S.pin="";S.D=null;S.v="home";S.step="choose";nav();render()};
+if($("#out"))$("#out").onclick=()=>{S.ro=0;try{smMemClear()}catch(e){}S.pin="";S.D=null;S.v="home";S.step="choose";nav();render()};
 if(T==="find"){const f=S.f||(S.f={w:"all",u:"",k:"",s:"",a:"",m:""});
 const pc={};people.forEach(p=>{pc[p.Phone]=(pc[p.Phone]||0)+1});
 const opt=(v,t,cur)=>`<option value="${esc(v)}"${v===cur?" selected":""}>${esc(t)}</option>`;
