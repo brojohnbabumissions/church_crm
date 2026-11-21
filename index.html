@@ -470,26 +470,37 @@ window.addEventListener("appinstalled",()=>setTimeout(()=>ntAsk(true),1500));
 const OLK="pol_ol";
 async function olHash(u,p){const t="pol|"+String(u).trim().toLowerCase()+"|"+String(p);try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){let h=5381;for(const c of t)h=(h*33^c.charCodeAt(0))>>>0;return"f"+h}}
 const olGet=()=>{try{const o=JSON.parse(localStorage.getItem(OLK)||"null");return o&&o.h?o:null}catch(e){return null}};
-function olAdd(){const o=olGet();if(!o)return;
+function olAdd(){const o=olGet();if(!o)return;const dc=app.firstElementChild;
 app.insertAdjacentHTML("beforeend",`<div class="card k9"><h2>📝 Sermons Login / ప్రసంగాల లాగిన్</h2><p class="mu" style="margin:-4px 0 8px">ఇంటర్నెట్ అవసరం లేదు. ప్రసంగాలు చదవడానికి మాత్రమే.</p><label>User ID</label><input id="olu" autocomplete="off" autocapitalize="none"><label>PIN</label><input id="olp" type="password" autocomplete="off"><p class="err" id="ole"></p><button class="p" id="olk">Enter / లోపలికి</button></div>`);
+const sc=app.lastElementChild;
+app.insertAdjacentHTML("afterbegin",`<div style="display:flex;gap:8px;margin-bottom:12px"><button id="lt1" style="flex:1">📊 Dashboard</button><button id="lt2" style="flex:1">📝 Sermons</button></div>`);
+const sh=w=>{dc.style.display=w==="d"?"":"none";sc.style.display=w==="s"?"":"none";$("#lt1").className=w==="d"?"p":"";$("#lt2").className=w==="s"?"p":"";S.lt=w};
+$("#lt1").onclick=()=>sh("d");$("#lt2").onclick=()=>sh("s");sh(S.lt||"d");
 $("#olk").onclick=async()=>{if((S.olx||0)>Date.now()){$("#ole").textContent="ఒక నిమిషం ఆగి మళ్ళీ ప్రయత్నించండి";return}
 const h=await olHash($("#olu").value,$("#olp").value);if(h===o.h){S.olf=0;S.ro=1;rPastor();return}
 S.olf=(S.olf||0)+1;if(S.olf>=5){S.olx=Date.now()+60000;S.olf=0}$("#ole").textContent="User ID లేదా PIN తప్పు"}}
 function rSmRO(){S.SM=smAll();
-app.innerHTML=`<div class="card k9"><h2>📝 ప్రసంగాలు / Sermons (${S.SM.length})</h2><p class="mu" style="margin:-4px 0 8px">📴 చదవడానికి మాత్రమే. రాయడానికి లేదా మార్చడానికి పూర్తి లాగిన్ (PIN + Telegram OTP) చేయండి.</p><input id="smq" placeholder="🔍 వెతకండి" value="${esc(S.smq||"")}"><div id="sml" class="sgbox" style="margin-top:8px"></div><button id="oex" style="width:100%;margin-top:10px">🚪 Logout / బయటకు</button></div>`;
+app.innerHTML=`<div class="card k9"><h2>📝 ప్రసంగాలు / Sermons (${S.SM.length})</h2><p class="mu" style="margin:-4px 0 8px">📴 చదవడానికి మాత్రమే. రాయడానికి లేదా మార్చడానికి పూర్తి లాగిన్ (PIN + Telegram OTP) చేయండి.</p><input id="smq" placeholder="🔍 వెతకండి" value="${esc(S.smq||"")}"><div id="sml" class="sgbox" style="margin-top:8px"></div><button id="oex" style="width:100%;margin-top:10px">🚪 Logout / బయటకు</button><button id="owp" style="width:100%;margin-top:12px">🧹 ఈ ఫోన్ నుండి నా ప్రసంగాలు తొలగించండి</button></div>`;
 const dr=()=>{const q=$("#smq").value.toLowerCase().trim();S.smq=$("#smq").value;const a=S.SM.filter(x=>!q||((x.t||"")+" "+(x.v||"")+" "+(x._tx||(x._tx=smTx(x.b)))).toLowerCase().includes(q));
 $("#sml").innerHTML=a.map(x=>`<div class="item" style="display:flex;gap:8px;align-items:center" data-sst="${esc(x.id)}"><div style="flex:1;min-width:0"><b>📝 ${esc(x.t||"(శీర్షిక లేదు)")}</b><div class="mu">${fd(x.d)}${x.v?" · "+esc(x.v):""}</div></div><span style="flex:none;font-size:18px">🎤</span></div>`).join("")||'<div class="mu">ప్రసంగాలు లేవు</div>'};
 dr();$("#smq").oninput=dr;
 $("#sml").onclick=e=>{const b=e.target.closest("[data-sst]");if(!b)return;const r=smGet(b.dataset.sst);if(r)smStage(r,()=>{$("#modal").innerHTML="";rSmRO()})};
-$("#oex").onclick=()=>{S.ro=0;S.v="home";S.step="choose";nav();render()}}
+$("#owp").onclick=smWipe;$("#oex").onclick=()=>{S.ro=0;S.v="home";S.step="choose";nav();render()}}
 function olBox(){const el=$("#olb");if(!el)return;const o=olGet();
 el.innerHTML=o?`<div class="mu">✅ ఈ ఫోన్ లో ఆఫ్‌లైన్ లాగిన్ సెట్ అయింది (User ID: ${esc(o.u)}). అది ప్రసంగాలు చదవడానికి మాత్రమే.</div><div style="display:flex;gap:8px;margin-top:6px"><button id="olc" style="flex:1">✏️ మార్చండి</button><button id="old" style="flex:1">🗑 తొలగించండి</button></div>`:`<button id="olc" style="width:100%">🔑 ఆఫ్‌లైన్ లాగిన్ సెట్ చేయండి</button><div class="mu" style="margin-top:6px">ఇంటర్నెట్ లేనప్పుడు ప్రసంగాలు చదవడానికి (రాయడానికి కాదు).</div>`;
-$("#olc").onclick=olForm;if($("#old"))$("#old").onclick=()=>{if(!confirm("ఈ ఫోన్ లోని ఆఫ్‌లైన్ లాగిన్ తొలగించాలా?"))return;try{localStorage.removeItem(OLK)}catch(e){}olBox()}}
+el.insertAdjacentHTML("beforeend",'<button id="owp" style="width:100%;margin-top:12px">🧹 ఈ ఫోన్ నుండి నా ప్రసంగాలు తొలగించండి</button>');$("#owp").onclick=smWipe;$("#olc").onclick=olForm;if($("#old"))$("#old").onclick=()=>{if(!confirm("ఈ ఫోన్ లోని ఆఫ్‌లైన్ లాగిన్ తొలగించాలా?"))return;try{localStorage.removeItem(OLK)}catch(e){}olBox()}}
 function olForm(){$("#modal").innerHTML=`<div class="modal" id="mm"><div><h2>🔑 ఆఫ్‌లైన్ లాగిన్ / Offline Login</h2><p class="mu">ఈ ఫోన్ లో మాత్రమే పనిచేస్తుంది. ప్రసంగాలు చదవడానికి మాత్రమే.</p><label>User ID *</label><input id="ou" maxlength="30" autocomplete="off" autocapitalize="none"><label>PIN * (కనీసం 4)</label><input id="op" type="password" maxlength="20" autocomplete="off"><label>PIN మళ్ళీ *</label><input id="op2" type="password" maxlength="20" autocomplete="off"><p class="err" id="oe"></p><button class="p" id="os" style="width:100%">Save / సేవ్ చేయండి</button><button id="ox" style="width:100%;margin-top:8px">Cancel / రద్దు</button></div></div>`;
 $("#ox").onclick=()=>$("#modal").innerHTML="";
 $("#os").onclick=async()=>{const u=$("#ou").value.trim(),p=$("#op").value;if(!u){$("#oe").textContent="User ID ఇవ్వండి";return}if(p.length<4){$("#oe").textContent="PIN కనీసం 4 అక్షరాలు ఉండాలి";return}if(p!==$("#op2").value){$("#oe").textContent="రెండు PIN లు ఒకేలా లేవు";return}
 const h=await olHash(u,p);try{localStorage.setItem(OLK,JSON.stringify({u:u,h:h}))}catch(e){$("#oe").textContent="ఈ ఫోన్/బ్రౌజర్ లో సేవ్ చేయడం కుదరలేదు. Chrome లో తెరవండి.";return}
 $("#modal").innerHTML="";olBox()}}
+
+async function smWipe(){let dirty=smAll().filter(x=>x.dirty);
+if(S.pin&&dirty.length){for(const l of dirty)await smPush(l);dirty=smAll().filter(x=>x.dirty)}
+const msg=dirty.length?"⚠️ "+dirty.length+" ప్రసంగాల కొత్త రాతలు ఇంకా సర్వర్ కు వెళ్ళలేదు. ఇప్పుడు తొలగిస్తే అవి శాశ్వతంగా పోతాయి.\n\nఅయినా ఈ ఫోన్ నుండి తొలగించాలా?":"ఈ ఫోన్ నుండి మీ ప్రసంగాలు, ఆఫ్‌లైన్ లాగిన్ తొలగించాలా?\n\nసర్వర్ లో ఉన్నవి సురక్షితంగా ఉంటాయి. మళ్ళీ పూర్తి లాగిన్ తో తెచ్చుకోవచ్చు.";
+if(!confirm(msg))return;
+try{const ks=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&(k.indexOf("pol_sm")===0||k===OLK))ks.push(k)}ks.forEach(k=>localStorage.removeItem(k))}catch(e){}
+S.SM=[];S.tm=null;S.ro=0;S.pin="";S.D=null;$("#modal").innerHTML="";S.v="home";S.step="choose";nav();render();setTimeout(()=>alert("✅ ఈ ఫోన్ నుండి ప్రసంగాలు తొలగించబడ్డాయి"),100)}
 /* ===== ప్రసంగ నోట్స్ (పాస్టర్ గారి కోసం): ఫోన్‌లో భద్రం + Sermons షీట్ లో బ్యాకప్ ===== */
 const SMK="pol_sm_",SMI="pol_sm_ix";
 const SMT={B:1,STRONG:1,I:1,EM:1,U:1,S:1,STRIKE:1,DIV:1,P:1,BR:1,SPAN:1,FONT:1,H1:1,H2:1,H3:1,UL:1,OL:1,LI:1,HR:1,BLOCKQUOTE:1,SUB:1,SUP:1};
